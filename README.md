@@ -1,2 +1,6 @@
 # AuctionApp
-BTL mon he quan tri CSDL
+BTL môn Hệ quản trị CSDL
+
+Database: MongoDB
+Backend: Python
+Frontend: HTML, CSS, Javascript
