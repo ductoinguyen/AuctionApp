@@ -28,5 +28,17 @@ def getReview(hotel_id):
 def home():
     return render_template('render/home.html')
 
+@app.route("/phong-dau-gia", methods=["GET"])
+def room():
+    return render_template('render/room.html')
+
+@app.route("/dang-nhap", methods=["GET"])
+def login():
+    return render_template('render/login.html')
+
+@app.route("/dang-ky", methods=["GET"])
+def signup():
+    return render_template('render/signup.html')
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.3')
