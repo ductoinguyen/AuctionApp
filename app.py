@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
-from controller import url_controller, db_controller
+from controllers import url_controller, db_controller
 import os, json, threading, time
 import pandas as pd
 import numpy as np

@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, session, redirect, url_for, escape, r
 import os, json
 import app
 import model.account.admin as admin
-import controller.db_controller as db_controller
+import controllers.db_controller as db_controller
 
 def homeController():
     # neu chua dang nhap => chuyen den trang dang nhap
