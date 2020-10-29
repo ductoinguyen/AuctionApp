@@ -1,47 +1,43 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
+from controller import url_controller, db_controller
 import os, json, threading, time
 import pandas as pd
 import numpy as np
 
-import pymongo
-from pymongo import MongoClient
-
-# app = Flask(__name__)
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
-
-# app = Flask(__name__) # to make the app run without any
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+db = db_controller.getDB()
 
-@app.route("/getReview/<int:hotel_id>", methods=["POST"])
-def getReview(hotel_id):
-    data = []
-    # df = query.getReviews(hotel_id)
-    df = None
-    for index, row in df.iterrows(): 
-        data.append({
-            "time": row[0],
-            "title": row[1],
-            "content": row[2],
-            "score":row[3]
-        })
-    return app.response_class(json.dumps(data),mimetype='application/json')
-
-@app.route("/", methods=["GET"]) # start-page
+@app.route("/", methods=["GET"])
 def home():
+    return url_controller.homeController()
+
+@app.route("/dang-nhap", methods=["GET"])
+def renderPageLogin():
     return render_template('render/login.html')
+
+@app.route("/submit-dang-nhap", methods=["POST"])
+def login():
+    return url_controller.submitLogin()
+
+
+@app.route("/dang-xuat", methods=["GET"])
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('/'))
+
 
 @app.route("/phong-dau-gia", methods=["GET"])
 def room():
     return render_template('render/room.html')
 
-@app.route("/trang-chu", methods=["GET"])
-def login():
-    return render_template('render/home.html')
+
 
 @app.route("/dang-ky", methods=["GET"])
 def signup():
     return render_template('render/signup.html')
 
 if __name__ == "__main__":
-    app.run(debug=True, host='127.1.1.1')
+    app.run(debug=True)
