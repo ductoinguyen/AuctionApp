@@ -3,8 +3,8 @@ from pymongo import MongoClient
 
 import random
 
-myclient = MongoClient("mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.net/auctionDB?retryWrites=true&w=majority")
-db = myclient["auctionDB"]
+myclient = MongoClient("mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.net/AuctionApp?retryWrites=true&w=majority")
+db = myclient["AuctionApp"]
     
 def createUsername(i):
     return "testauctioneer" + str(i)

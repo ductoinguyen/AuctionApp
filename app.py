@@ -3,6 +3,9 @@ import os, json, threading, time
 import pandas as pd
 import numpy as np
 
+import pymongo
+from pymongo import MongoClient
+
 # app = Flask(__name__)
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
@@ -24,21 +27,21 @@ def getReview(hotel_id):
         })
     return app.response_class(json.dumps(data),mimetype='application/json')
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET"]) # start-page
 def home():
-    return render_template('render/home.html')
+    return render_template('render/login.html')
 
 @app.route("/phong-dau-gia", methods=["GET"])
 def room():
     return render_template('render/room.html')
 
-@app.route("/dang-nhap", methods=["GET"])
+@app.route("/trang-chu", methods=["GET"])
 def login():
-    return render_template('render/login.html')
+    return render_template('render/home.html')
 
 @app.route("/dang-ky", methods=["GET"])
 def signup():
     return render_template('render/signup.html')
 
 if __name__ == "__main__":
-    app.run(debug=True, host='127.0.0.3')
+    app.run(debug=True, host='127.1.1.1')
