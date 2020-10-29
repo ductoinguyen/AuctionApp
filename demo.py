@@ -3,8 +3,8 @@ from pymongo import MongoClient
 
 import random
 
-myclient = MongoClient("mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.net/auctionDB?retryWrites=true&w=majority")
-db = myclient["auctionDB"]
+myclient = MongoClient("mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.net/AuctionApp?retryWrites=true&w=majority")
+db = myclient["AuctionApp"]
     
 def createUsername(i):
     return "testauctioneer" + str(i)
@@ -145,22 +145,34 @@ def itemContent():
             "https://ae01.alicdn.com/kf/H2d59cc7b22674a8ea3eadf6ccc49c9baF/Rococo-Baroque-Marie-Antoinette-B-ng-o-18th-Th-K-Th-i-Ph-c-H-ng.jpg_q50.jpg",
             "https://ae01.alicdn.com/kf/HTB1lbTlmY1YBuNjSszhq6AUsFXaO.jpg_q50.jpg"
         ]
-        arr = [
-            "Giày da đầu tiên tìm thấy ở một hang động của Armenia năm 2008 có niên đại 5.500 năm TCN; đôi giày này là một mảnh da bò với dây da buộc.",
-            "Giày của người băng Ốtzi có niên đại 3.300 năm TCN; nó đặc trưng bởi màu nâu da gấu với da ở mặt bên và chuỗi vỏ cây ở mu bàn chân thắt chặt lại.",
-            "Giày của mọi da đỏ của người da đỏ ở Nam Mỹ, là những đôi giày bó sát, có đế mềm, làm từ da, da bò bizon và có trang trí; tuy nhiên, chúng rất dễ ngấm nước, vì vậy những người da đỏ thường đi chân trần vào mùa hạ hoặc trong thời tiết ẩm ướt.",
-            "Trang phục của nam giới rất đơn giản, gọi là shendyt, chỉ là một cái váy quấn quanh thắt lưng, đôi khi được xếp ly hoặc chụm về phía trước và thường để mình trần. Váy shendyt thời kỳ Cổ vương quốc rất ngắn, sang thời kỳ Trung vương quốc, nó dài hơn, có khi phủ cả mắt cá chân. Những người đàn ông (kể cả phụ nữ) thuộc tầng lớp quý tộc thường khoác lên mình một áo choàng mỏng có ống tay dài bằng vải lanh và được xếp li. Dây thắt lưng của họ thường được gắn thêm những tua rua để trang trí. Vào cuối thời kỳ này, một chiếc khố hình tam giác được mặc bên trong lớp váy ngoài. Một điều đặc biệt là đàn ông lúc bấy giờ lại có ý thức về thời trang hơn cả phụ nữ. Từ những bức phù điêu trên các ngôi mộ, người ta có thể ước lượng rằng, có hơn 40 kiểu loại trang phục dành cho đàn ông.",
-            "Trong suốt thời kỳ cổ đại, phụ nữ Ai Cập chủ yếu chỉ mặc một loại váy bó sát cơ thể, gọi là kalasiris. Một mảnh vải dài sẽ được gấp và khâu lại tạo thành một cái váy ống, kéo dài từ trên mắt cá chân cho đến dưới hoặc trên ngực. Một cái váy kalasiris thường có một hoặc hai dây để giữ trên vai. Phụ nữ Ai Cập xưa kia không coi việc để ngực trần là điều khiếm nhã. Phụ nữ (kể cả đàn ông) thường đeo nhiều vòng hạt trên cổ hoặc đơn giản là những chiếc khăn quàng đầy màu sắc, và cũng mặc một áo choàng bằng vải lanh với hình thức tương tự như đàn ông. Trong các tác phẩm nghệ thuật, váy kalasiris thường được mô tả là bó sát vào cơ thể của người phụ nữ, kể cả khi họ quỳ hoặc ngồi. Thực tế là vải lanh có độ giãn. Vì vậy, trang phục bằng vải lanh sẽ có xu hướng rộng thùng thình chứ không phải ôm sát cơ thể như trong nghệ thuật."
-        ]
+        describe = "Hẳn với những người yêu thời trang, fashion show là một sự kiện không thể bỏ lỡ vì nó không chỉ là một đường băng với các người mẫu mặc những bộ đồ ấn tượng đi qua đi lại mà nó còn đọng lại trong lòng khán giả như một buổi trình diễn nghệ thuật, là sự giao thoa giữa mỹ thuật, âm nhạc, ánh sáng và bài trí sân khấu. Dĩ nhiên, fashion show được sinh ra không phải chỉ để dành cho thưởng lãm bởi chi phí tổ chức một fashion show là rất lớn. Fashion show có một nhiệm vụ quan trọng trong việc quảng bá sản phẩm của các nhà thiết kế và quan trọng hơn nữa là để khẳng định danh tiếng của hãng."
 
     if category == 'Hội họa':
-        arr = [
-            "Mona Lisa (La Gioconda hay La Joconde, Chân dung Lisa Gherardini, vợ của Francesco del Giocondo) là một bức chân dung thế kỷ 16 được vẽ bằng sơn dầu trên một tấm gỗ dương tại Florence bởi Leonardo da Vinci trong thời kì Phục Hưng Italia. Tác phẩm thuộc sở hữu của Chính phủ Pháp và hiện được trưng bày tại bảo tàng Louvre ở Paris, Pháp với tên gọi Chân dung Lisa Gherardini, vợ của Francesco del Giocondo. Bức tranh là một bức chân dung nửa người và thể hiện một phụ nữ có những nét thể hiện trên khuôn mặt thường được miêu tả là bí ẩn. Sự mơ hồ trong nét thể hiện của người mẫu, sự lạ thường của thành phần nửa khuôn mặt, và sự huyền ảo của các kiểu mẫu hình thức và không khí hư ảo là những tính chất mới lạ góp phần vào sức mê hoặc của bức tranh. Có lẽ nó là bức tranh nổi tiếng nhất từng bị đánh cắp và được thu hồi về bảo tàng Louvre. Ít tác phẩm nghệ thuật khác từng là chủ đề của nhiều sự chăm sóc kỹ lưỡng, nghiên cứu, thần thoại hoá và bắt chước tới như vậy. Một sự nghiên cứu và vẽ thử bằng chì than và graphite về Mona Lisa được cho là của Leonardo có trong Bộ sưu tập Hyde, tại Glens Falls, NY.",
-            "Tiếng thét (tiếng Na Uy: Skrik) là tên của một trong bốn bản sáng tác, dưới dạng tranh vẽ và in trên đá theo trường phái biểu hiện của danh họa người Na Uy Edvard Munch vào khoảng năm 1893 và 1910. Tất cả các bức họa đều vẽ một nhân vật đầy âu lo tuyệt vọng tương phản với phong cảnh hòa cùng bầu trời đỏ. Họa sĩ không chú tâm mô tả cái mình nhìn thấy, ghét sự hời hợt của tình cảm. Chủ đích của ông là biểu hiện mạnh nhất, nhanh nhất tình cảm mạnh mẽ, tức thời của mình. Thế nên tranh nghiêng ngả, không cân bằng, nét vung mạnh mẽ, chói gắt. Phong cảnh nền trong bức tranh thuộc thành phố Oslofjord, nhìn từ Ekeberg, Oslo. Edvard Munch tạo ra bốn bản của Tiếng thét trên các chất liệu khác nhau. Phòng trưng bày quốc gia Na Uy ở Oslo giữ một trong hai bức họa vẽ bằng thuốc màu (năm 1893, là bức tranh ở bên phải). Viện bảo tàng Munch giữ một bản khác (bản năm 1910) và một bản phấn màu. Bản thứ tư (phấn màu, năm 1895) được một người mua với trị giá 119.922.500 đôla tại cuộc bán đấu giá Mỹ thuật Ấn tượng và Hiện đại do tập đoàn Sotheby's tổ chức vào ngày 2 tháng 5 năm 2012, là bức tranh có mức giá danh định cao nhất từ trước đến nay trong một cuộc đấu giá. Bức tranh Những Người Chơi Bài của danh họa Paul Cézanne được bán bí mật vào năm 2011 với trị giá hơn 250 triệu đô la",
-            "Chân dung tự họa là một bức tranh sơn dầu năm 1889 vẽ bởi họa sĩ Hậu ấn tượng người Hà Lan Vincent van Gogh. Bức tranh, có thể là bức chân dung tự họa cuối cùng của Van Gogh, được vẽ vào tháng 9 năm đó, ngay trước khi ông rời Saint-Rémy-de-Provence ở miền nam nước Pháp.",
-            "Salvator Mundi là bức tranh củahọa sĩ người Ý thời Phục hưng Leonardo da Vinci có niên đại c. 1500. Từ lâu được cho là bản sao của một bản gốc bị mất với lớp sơn quá dày , nó đã được tái khám phá, phục hồi và đưa vào một cuộc triển lãm lớn của Leonardo tại Phòng trưng bày Quốc gia , London, vào năm 2011–12. Christie's tuyên bố ngay sau khi bán tác phẩm mà hầu hết các học giả hàng đầu coi đó là tác phẩm gốc của Leonardo, nhưng sự ghi nhận này đã bị các chuyên gia khác tranh cãi, một số người cho rằng ông chỉ đóng góp một số yếu tố nhất định. Bức tranh mô tả Chúa Giê-su trong trang phục thời Phục hưng , làm dấu thánh giá bằng tay phải, trong khi cầm một quả cầu pha lê trong suốt, không khúc xạ ở bên trái, báo hiệu vai trò của ngài là Salvator Mundi (tiếng Latinh có nghĩa là 'Cứu thế giới') và đại diện cho 'thiên cầu' của các tầng trời. Khoảng 20 biến thể khác của tác phẩm được biết đến bởi các sinh viên và tín đồ của Leonardo.",
-            "Interchange , còn được gọi là đổi chổ lẫn nhau , là một dầu trên vải vẽ bởi người Hà Lan-Mỹ biểu hiện trừu tượng họa sĩ Willem de Kooning (1904-1997). Nó có kích thước 200,7 x 175,3 cm (79,0 x 69,0 in) và được hoàn thành vào năm 1955. Đây là một trong những phong cảnh trừu tượng đầu tiên của de Kooning, và đánh dấu sự thay đổi trong phong cách của ông dưới ảnh hưởng của nghệ sĩ đồng nghiệp Franz Kline. Vào tháng 9 năm 2015, nó đã được David Geffen Foundation bán cho Kenneth C. Griffin với giá 300 triệu đô la (tương đương 325.731.065,70 đô la vào năm 2019), một mốc mới cho mức giá cao nhất từ ​​trước đến nay cho một bức tranh, cho đến tháng 11 năm 2017 bởi Salvator Mundi của Leonardo Da Vinci. Nó đã được cho mượn tại Viện Nghệ thuật Chicago."
+        links= [
+            "https://media.baltictimes.com/media/photos/146160_1766082905d9dd3947a871_big.jpg",
+            "https://i.ytimg.com/vi/TTMWZaTYSc4/maxresdefault.jpg",
+            "https://www.europeanceo.com/wp-content/uploads/2016/11/C01-G19C.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/ab/William_McTaggart_-_Spring_-_Google_Art_Project.jpg",
+            "https://www.dorotheum.com/fileadmin/lot-images/38N171205/hires/kuenstler-19.-jahrhundert-203293.jpg",
+            "https://img.idesign.vn/2018/04/13/93889/idesign_monalisa_04a.jpg",
+            "https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FlG6PgfEukWic566Z_lT3_g%252Fmarron-wynn-picasso-first.jpg&width=1200&quality=80",
+            "https://images.saatchiart.com/saatchi/247461/art/3766226/2836110-FSKZGWWW-7.jpg",
+            "https://www.artdependence.com/media/5426/5.png",
+            "https://i.pinimg.com/originals/f1/d3/43/f1d3435b8bf4f6ed8858dc9670ee49d5.jpg",
+            "https://redsvn.net/wp-content/uploads/2018/11/nhung-buc-tranh-son-dau-noi-tieng-hang-dau-viet-nam-3910.jpg",
+            "https://vanhocnghethuathatinh.org.vn/images/2019-10-1037765-hinh-anh-vnh.jpg",
+            "https://d1fbzwhbgcf4vf.cloudfront.net/optimized-85fdc097bbd3348815cdf392af151123754ebd29a3a4c1c00f6d8364e4effb87.jpeg/800x,q50",
+            "https://lh3.googleusercontent.com/proxy/quNj87Iq666Nd595Vk4AI5tfQlW_D8UXY4HGYyANxL08G_f625jXqIsLtEuVhOocXmsqOTTMnYTmNIoewQg9rRjGEWz1wW69IlAPt_0_MctOV2p8Ggv1LtqzCwvjlvQ8mOMP5CvYyg",
+            "https://tuhoctiengtrung.vn/wp-content/uploads/2018/10/hinh-anh-tranh-thuy-mac-trung-quoc-co-nghe-thuat-doc-dao-cua-nguoi-tau-2.jpg",
+            "https://lh3.googleusercontent.com/proxy/4Wq4HuR0wP97M6fLtQmqK1VtmA6F7RcZODWZfwh5sPFzkBmS1nS4oSnAyQFInNnqmN4YaLoh64vO14ellXyBb4JA6xVtCkLmNIvLuwbnVPnITA",
+            "https://lh3.googleusercontent.com/proxy/_Hlnty8wCjFxcpb-rbcbr-JjDSNH-KeTUU_v1sVtS7W4t3KmOT88uWAmxCH8EyzIWxXZ-hcfqXg27qFTD1Ik5r3XqS5qIvfIfE1siS6NQj-KxMELE_GpzGAxK4PEFolsfCXNLDoMtrHrdHwuF2xSFOJvY4QL3PHaUOYdj3rU4lmkQYLPcDjZ_uHLCw6kOFS0qIdMxKNu2yZr9Z8",
+            "https://hinhgoc.net/upload/img/_fe-tm-76.jpg?quality=100&width=1200&height=1200",
+            "https://doart.com.vn/upload/images/tranh-phong-canh--doart-2(1).jpg",
+            "https://lh3.googleusercontent.com/proxy/v6VWnuVnuCTn8TXMa_aNhhgvUvhLQJae16OnZeUrGvN0TX3kNP2I-yhEp4mbpnz7coChjIFn3Jm0dmdmnRFysWGytDun_QFN6XJ7i35j4uIwRr_xGR10",
+            "https://upload.wikimedia.org/wikipedia/commons/e/ec/Siege-of-Busanjin-1592.jpg",
+            "https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/402ab5d0c3e811e8982bdd77a0c479cc.jpg"
         ]
+        describe = "Hội họa là một ngành nghệ thuật trong đó con người sử dụng màu vẽ để tô lên một bề mặt như là giấy, hoặc vải, để thể hiện các ý tưởng nghệ thuật. Thông thường, công việc này do họa sĩ thực hiện. (Họa sĩ là từ dùng để chỉ những người coi hội họa là nghề nghiệp của mình). Kết quả của công việc đó là các tác phẩm hội họa hay còn gọi là các tranh vẽ. Hội họa là một trong những loại hình nghệ thuật quan trọng và phổ biến nhất. Nói cách khác, hội họa là một ngôn ngữ để truyền đạt ý tưởng của người nghệ sĩ bằng các tác phẩm hội họa sử dụng kỹ thuật (nghệ) và phương pháp (thuật) của họa sĩ. Một phần lịch sử hội họa trong nghệ thuật phương Đông lẫn phương Tây bị chi phối bởi nghệ thuật tôn giáo. Ví dụ về các loại tác phẩm này bao gồm các bức tranh miêu tả nhân vật thần thoại trên đồ gốm, các bức tranh tường, trần nhà miêu tả cảnh tượng trong kinh thánh, đến các bức tranh về cuộc đời Đức Phật và các tôn giáo phương Đông khác."
 
     if category == 'Trang sức':
         links = [
@@ -183,21 +195,32 @@ def itemContent():
             "https://cdn.shopify.com/s/files/1/0011/0778/7894/products/bong-tai-da-quy-citrine-es1107-4-ame_36fc00c8-8398-443a-9798-09711841a8da_1024x1024.jpg?v=1586417549",
             "https://trangsucdaquydep.com/wp-content/uploads/2019/05/Da_trang_suc_nhan_tao.jpg"
         ]
-        arr = [
-            "Đồ trang sức rất phổ biến ở Ai Cập cổ đại, bất kể tầng lớp xã hội nào, vì chúng cũng được xem là bùa hộ mệnh. Chúng là những thứ như bông tai, dây chuyền, vòng đeo tay chân và nhẫn. Số lượng đồ trang sức của một cá nhân thường chỉ ra vị trí xã hội và mức độ giàu có của họ. Trang sức bằng vàng và các loại đá quý được dành cho những người có địa vị cao quý; trong khi những người nghèo thường đeo những trang sức bằng gốm nhiều màu. Các pharaon và những thành viên trong hoàng gia tự phân biệt mình với dân thường bằng những món trang sức khá lộng lẫy, đặc biệt, chúng đều được trang trí với uraeus - biểu tượng uy quyền của nhà vua. Vàng được khai thác với số lượng lớn, tập trung tại vùng sa mạc phía đông hoặc đến từ Nubia. Bạc được cho là khá hiếm đối với người Ai Cập bởi vì chúng được nhập từ bên châu Á. Vì thế mà bạc lại quý hơn vàng. Những loại đá bán quý như carnelian, jasper hay thạch anh tím được khai thác từ các mỏ đá ở sa mạc phía đông; trong khi quặng đá ngọc lam nằm ở bán đảo Sinai và ngọc lưu ly xanh thẫm lại nằm ở vùng Afghanistan xa xôi. Thủy tinh và sứ cũng được ưa thích vì chúng có thể chế tác ra những món trang sức đa dạng sắc màu.",
-            "Viên kim cương Hope là một trong những món đồ trang sức nổi tiếng nhất thế giới, với lý lịch quyền sở hữu có niên đại gần bốn thế kỷ. Màu xanh lam hiếm hoi được ngưỡng mộ do một lượng nhỏ nguyên tử boron. Với trọng lượng 45,52 cara, kích thước đặc biệt của viên kim cương đã tiết lộ những phát hiện mới về sự hình thành đá quý. Món trang sức được cho có nguồn gốc từ Ấn Độ, được biết đến đã cắt gọt từ viên Màu Xanh nước Pháp (Le bleu de France), dâng nộp lên vua Louis XIV. Người ta thu nhận tên nó khi xuất hiện trong danh mục sưu tập đá quý thuộc sở hữu của một gia đình ngân hàng London gọi là Hope năm 1839. Sau đó viên kim cương được bán cho nhà xã hội Washington Evalyn Walsh McLean thường đeo viên kim cương lên người.",
-            "Trang sức (hay còn gọi là nữ trang, là những đồ dùng trang trí cá nhân, ví dụ như: vòng cổ, nhẫn, vòng đeo tay, khuyên, thường được làm từ đá quý, kim loại quý hoặc các chất liệu khác. Từ trang sức trong tiếng Anh là jewellery bắt nguồn từ jewel được anh hóa từ tiếng Pháp cổ 'jouel' vào khoảng thế kỷ 13. Nó cũng bắt nguồn từ tiếng Latinh 'jocale', có nghĩa là đồ chơi. Đồ trang sức là một trong những hình thức trang trí cơ thể cổ xưa nhất. Gần đây người ta đã tìm thấy những chuỗi hạt 100.000 năm tuổi được tin là một trong những món đồ trang sức cổ nhất từng được biết đến.",
-            "Kim cương là một trong hai dạng thù hình được biết đến nhiều nhất của cacbon, có độ cứng rất cao và khả năng khúc xạ cực tốt làm cho nó có rất nhiều ứng dụng trong cả công nghiệp và ngành kim hoàn. Kim cương được cho là một loại khoáng sản với những tính chất vật lý hoàn hảo.",
-
-        ]
+        describe = "Trang sức (hay còn gọi là nữ trang, là những đồ dùng trang trí cá nhân, ví dụ như: vòng cổ, nhẫn, vòng đeo tay, khuyên, thường được làm từ đá quý, kim loại quý hoặc các chất liệu khác. Từ trang sức trong tiếng Anh là jewellery bắt nguồn từ jewel được anh hóa từ tiếng Pháp cổ \"jouel\" vào khoảng thế kỷ 13. Nó cũng bắt nguồn từ tiếng Latinh \"jocale\", có nghĩa là đồ chơi. Đồ trang sức là một trong những hình thức trang trí cơ thể cổ xưa nhất. Gần đây người ta đã tìm thấy những chuỗi hạt 100.000 năm tuổi được tin là một trong những món đồ trang sức cổ nhất từng được biết đến."
     
     if category == 'Đồ cổ':
         links = [
-
+            "https://ordi.vn/wp-content/uploads/2019/07/B%E1%BA%A3n-%C4%91%E1%BB%93-b%E1%BB%9D-bi%E1%BB%83n-Vn-1749.jpg",
+            "https://blog.travian.com/wp-content/uploads/2017/09/Scavenger_Hunt.png",
+            "https://photo-1-baomoi.zadn.vn/w1000_r1/2013_11_05_180_31381742/a3e37c53ad13444d1d02.jpg",
+            "https://gomsubaokhanh.vn/media/news/1709_hoa-tiet-hoa-sen.jpg",
+            "https://afamilycdn.com/150157425591193600/2020/6/11/-1024x769-1591884534644306267223.jpg",
+            "https://anhsontranduc.files.wordpress.com/2015/07/image021.jpg",
+            "https://lh3.googleusercontent.com/proxy/_RRRd9bR2KbkiVG6tfVbCclOB8DB8sXhMe5pk7Yg0Rr3YqmNtBf__gDVlK4HjeiQ6prbRBKEJTfUkQxMhn27Eze62PJg6Fn4nUDdGP3kImCNB2C6eprH1BLLCWH9VTjU5_5PoYn1EORVyKh4UUrPaucGg63BVrgAVL0",
+            "https://photo-1-baomoi.zadn.vn/w1000_r1/2018_12_07_20_28895686/f65cf92cc36d2a33737c.jpg",
+            "https://file.hstatic.net/200000016780/article/3a0b3f8c92736f2d36621_e5fa515c4ce34a3cbbcb3484de80ed3c_1024x1024.jpg",
+            "https://vignette.wikia.nocookie.net/disney/images/0/09/Jack_Sparrow%27s_Compass_Opened_and_Closed.png/revision/latest?cb=20140319162333",
+            "https://lh3.googleusercontent.com/proxy/IH-np9cpmIA9pWLKehgOFD3gB5IEfK0WOF0uO3S3wNi3GO9ue8o4XcH6b4ngzZc1y56c0TjwMhKWKLIidIz0shu-TTufc7yQxxjCzzqhGJMpOjYwPGq93qi6q0NrPTkLJPyFRPnjJJN5BUCilvLjEodVf6biAQ",
+            "https://i.pinimg.com/originals/2b/26/ed/2b26ed2f5441fdc064863034267e4b49.jpg",
+            "https://i.pinimg.com/originals/ff/73/c1/ff73c143bf2a01d3eca338f613572cf7.jpg",
+            "https://img.chewy.com/is/image/catalog/129810_MAIN._AC_SL1500_V1497970919_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/91xylgICNyL._AC_SL1500_.jpg",
+            "https://cdn0.rubylane.com/_pod/item/1393670/ANCIENTx20Chinesex20Bronzex20Vasex20Qi/Ancient-Chinese-Bronze-Vase-Qing-Dynasty-pic-1A-2048%3A10.10-5b3d21f2-f.jpg",
+            "https://cf.shopee.vn/file/4d4e414120285f8140fa74bb0f6a12d8",
+            "https://baotangnhanhoc.org/vi/images/stories/CHUM.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Dong_Son_crossbow_trigger.JPG/1280px-Dong_Son_crossbow_trigger.JPG",
+            "https://www.thivien.net/attachment/kvTqGUtpQWihq95pFiSZrA.1442028122.jpg"
         ]
-        arr = [
-            
-        ]
+        describe = "Một món đồ cổ thực sự (tiếng Latinh : antiquus ; 'old', 'cổ') là một món đồ được coi là có giá trị vì ý nghĩa thẩm mỹ hoặc lịch sử của nó và thường được định nghĩa là ít nhất 100 tuổi (hoặc một số giới hạn khác), mặc dù thuật ngữ thường được sử dụng lỏng lẻo để mô tả bất kỳ đối tượng nào đã cũ. Đồ cổ thường là một món đồ được sưu tầm hoặc được ưa chuộng vì tuổi tác, vẻ đẹp, độ quý hiếm, tình trạng, tiện ích, kết nối tình cảm cá nhân và, hoặc các tính năng độc đáo khác. Nó là một vật thể hiện một thời đại hoặc khoảng thời gian trước đó trong lịch sử loài người. Vintage và sưu tầm được dùng để mô tả những món đồ đã cũ nhưng không đáp ứng tiêu chí 100 năm. Đồ cổ thường là những đồ vật thể hiện một mức độ khéo léo, khả năng sưu tầm hoặc sự chú ý nhất định đến thiết kế, chẳng hạn như bàn làm việc hoặc ô tô đời đầu. Chúng được mua tại các cửa hàng đồ cổ, nơi bán bất động sản, nhà đấu giá, đấu giá trực tuyến và các địa điểm khác, hoặc di sản được thừa kế. Những người buôn bán đồ cổ thường thuộc các hiệp hội thương mại quốc gia, nhiều hiệp hội thuộc CINOA, một liên hiệp các hiệp hội đồ cổ và nghệ thuật trên 21 quốc gia, đại diện cho 5.000 đại lý."
 
     if category == 'Đồ lưu niệm':
         links = [
@@ -219,10 +242,7 @@ def itemContent():
             "https://ae01.alicdn.com/kf/HTB1ca0cK3HqK1RjSZFEq6AGMXXa9.jpg",
             "https://i.pinimg.com/originals/9c/e5/21/9ce5213d1c3be9cc2154092b58552e0b.jpg"
         ]
-        arr = [
-            "Chiếc áo đội tuyển có chữ ký của HLV Park Hang Seo và các tuyển thuỷ Việt Nam vừa giành chức vô địch AFF Cup 2018",
-            "Cuộc thi lựa chọn chiếc cúp thay thế đã được tổ chức bởi FIFA để chuẩn bị cho World Cup 1974. Chiếc cúp cao 36,5 cm (14,4 in), được làm từ 5 kg (11 lb) vàng 18 carat (tỷ lệ 75% vàng) với đế có đường kính 13 cm (5,1 in) gồm hai lớp đá xanh (malachit). Chiếc cúp được yêu cầu làm rỗng; do nếu nó được làm đặc, nó sẽ nặng tới 70–80 kg và quá nặng để có thể giương cao chiếc cúp. Bertoni, Milano là người chế tác chiếc cúp, với tổng khối lượng là 6,175 kg (13,6 lb), trị giá 200.000 USD với biểu tượng hai người đang giữ Trái Đất. Gazzaniga đã miêu tả cúp như các đường bật lên từ đáy, vươn lên theo đường xoắn ốc, mở rộng ra để đón lấy thế giới. Nghệ thuật điêu khắc làm nổi bật lên hình người nhỏ gọn vươn lên thanh thoát, hiện ra hình ảnh hai vận động viên trong thời khắc tưng bừng của chiến thắng. Thủ quân của đội tuyển Tây Đức, Franz Beckenbauer là người đầu tiên giương cao chiếc cúp tại World Cup 1974. Chiếc cúp có khắc chữ nổi 'FIFA World Cup' tại đế của nó. Tên của nước có đội tuyển giành chức vô địch tại mỗi kỳ World Cup được khắc tại mặt đáy của cúp, nên sẽ không nhìn thấy được khi đặt chiếc cúp thẳng đứng. Câu ghi năm giải đấu diễn ra và tên của đội tuyển quốc gia vô địch đều được khắc bằng tiếng của quốc gia đó,ví dụ '— 1990 Deutschland' và '— 1994 Brasil' (tuy nhiên, năm 2010 nhà vô địch được khắc bằng tiếng Anh mà không phải bằng tiếng Tây Ban Nha theo quy định). Cho đến năm 2018, mười hai nhà vô địch đã được khắc ở đế. Chưa rõ FIFA sẽ dừng sử dụng chiếc cúp này như thế nào sau khi tên đội tuyển và năm giải đấu đã diễn ra được khắc đầy lên đáy của cúp; điều này sớm nhất sẽ không xảy ra sau World Cup 2030. Nghị quyết hiện nay của FIFA khẳng định rằng chiếc cúp này không giống như cái đầu tiên, không thể giữ được mãi mãi: đội vô địch chỉ nhận được bản sao mạ vàng chứ không phải chiếc cúp bằng vàng nguyên khối như chiếc cúp thật."
-        ]
+        describe = "Một món quà lưu niệm là một đối tượng mà một người mua lại cho những kỷ niệm mà chủ sở hữu liên kết với nó. Một món quà lưu niệm có thể là bất kỳ vật gì có thể được thu thập hoặc mua và vận chuyển về nhà bởi khách du lịch như một vật lưu niệm của một chuyến viếng thăm. Mặc dù không có chi phí tối thiểu hoặc tối đa nào được yêu cầu tuân thủ khi mua quà lưu niệm, nghi thức sẽ đề nghị giữ nó trong một khoản tiền mà người nhận sẽ không cảm thấy khó chịu khi tặng quà lưu niệm. Bản thân đối tượng có thể có giá trị nội tại, hoặc là biểu tượng của trải nghiệm. Không có đầu vào của chủ sở hữu, ý nghĩa tượng trưng là vô hình và không thể khớp nối."
 
 def openBid():
     return round(random.randint(25000000, 10000000000) + random.randint(0, 90000000)/90000000, 3)

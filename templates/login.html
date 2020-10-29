@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,27 +8,33 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="../static/style/theme.css" type="text/css">
 	<link rel="stylesheet" href="../static/style/login.css" type="text/css">
+	<style> 
+		#qualities:before {
+			content:'✓ '; 
+		}
+	</style>
 </head>
-<body style="background-image: url(../static/image/elegant-white-background.jpg);">
+
+<body style="	background-image: url(../static/image/elegant-white-background.jpg);	background-position: top left;	background-size: 100%;	background-repeat: no-repeat; background-attachment: fixed;">
 	<div class="py-5">
 		<div class="container">
 		<div class="row">
-			<div class="p-5 col-lg-5 login-box">
-				<h1>Đăng nhập</h1>
+			<div class="p-5 col-lg-5 login-box" style="background-color: white; border-color: black; box-shadow: black 0px 0px 4px;">
+				<h1 style="font-weight: 400">Đăng nhập</h1>
 				<br>
 				<form>
-					<div class="form-group"> <input type="text" class="form-control" placeholder="Username" id="form11"> </div>
+					<div class="form-group"> <input type="email" class="form-control" placeholder="Username" id="form11"> </div>
 					<div class="form-group"> <input type="password" class="form-control" placeholder="Password" id="form12"> <small class="form-text text-muted text-right">
 					</small> </div> <button type="submit" class="btn btn-success">Đăng nhập</button>
 					<br>
 					<br>
-					<a href="/dang-ky">Đăng ký tham gia đấu giá?</a>
+					<a href="/dang-ky" style="font-weight: 350;">Đăng ký tham gia đấu giá?</a>
 				</form>
 			</div>
-			<div class="col-md-46">
-				<h1 id="brand">T - Auction</h1>
-				<h3> Sàn đấu giá trực tuyến hàng đầu Việt Nam </h3>
-				<ul>
+			<div class="col-md-46" style="padding-left: 80px;">
+				<h1 id="brand" style="margin-top: 10%; text-align: center; font-weight: 500; text-shadow: 0px 2px 3px;">T - Auction</h1>
+				<h3 style="text-align: center; font-weight: 350;"> Sàn đấu giá trực tuyến hàng đầu Việt Nam </h3>
+				<ul style="margin-left: 30px; list-style: none; font-size: 20px; font-weight: 350;">
 					<li id="qualities">An toàn</li>
 					<li id="qualities">Nhanh chóng</li>
 					<li id="qualities">Đa dạng</li>
@@ -40,10 +47,10 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center d-md-flex align-items-center">
-				<ul class="nav d-flex justify-content-center">
+				<ul class="nav d-flex justify-content-center" style="margin-left: 430px; margin-right: 305px;">
 					<li class="nav-item"> <a class="nav-link active" href="">Trang chủ</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="">Liên hệ</a> </li>
-					<li class="nav-item"> <a class="nav-link" href="https://goo.gl/maps/23c4nvx5qMv7DpEc9" target="_blank">Bản đồ</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA">Bản đồ</a> </li>
 				</ul>
 				<div class="row">
 					<div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
@@ -62,7 +69,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
-			<p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+			<p class="mt-2 mb-0" contenteditable="true"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
 			</div>
 		</div>
     </div>
@@ -70,5 +77,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+	<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
 </body>
+
 </html>
