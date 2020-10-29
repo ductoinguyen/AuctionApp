@@ -16,7 +16,7 @@ def getDB():
         MONGO_URL = "mongodb+srv://hequantri:hequantri@cluster0.q0gxn.gcp.mongodb.net/auctionDB?retryWrites=true&w=majority";
     myclient = MongoClient(MONGO_URL)
     db = myclient["auctionDB"]
-    print('ok')
+    # print('ok')
     return db
 
 def checkLogin(db, username, password):

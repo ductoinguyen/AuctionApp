@@ -8,7 +8,7 @@ def homeController():
     # neu chua dang nhap => chuyen den trang dang nhap
     # neu da dang nhap roi thi hien thi binh thuong
     if 'username' not in session:
-        return redirect(url_for('/dang-nhap'))
+        return render_template('render/login.html')
     return render_template('render/home.html')
 
 def submitLogin():
