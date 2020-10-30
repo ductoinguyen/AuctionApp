@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
 from controllers import url_controller, db_controller
-import os, json, threading, time, test
+import os, json, threading, time
 import pandas as pd
 import numpy as np
+from datetime import datetime
 
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
@@ -48,7 +49,9 @@ def getImage(typeroom):
 
 @app.route("/test", methods=["GET"])
 def test():
-    return app.response_class(json.dumps({"test": test.dt_string}),mimetype='application/json')
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    return app.response_class(json.dumps([{"test": str(dt_string)}]),mimetype='application/json')
 
 if __name__ == "__main__":
     app.run(debug=True)
