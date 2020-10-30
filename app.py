@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
 from controllers import url_controller, db_controller
-import os, json, threading, time
+import os, json, threading, time, test
 import pandas as pd
 import numpy as np
 
@@ -10,10 +10,6 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 db = db_controller.getDB()
 
-@app.route("/", methods=["GET"])
-def home():
-    return url_controller.homeController()
-
 @app.route("/dang-nhap", methods=["GET"])
 def renderPageLogin():
     return render_template('render/login.html')
@@ -22,22 +18,37 @@ def renderPageLogin():
 def login():
     return url_controller.submitLogin()
 
-
 @app.route("/dang-xuat", methods=["GET"])
 def logout():
-    session.pop('username', None)
-    return redirect(url_for('/'))
-
+    return url_controller.logout()
 
 @app.route("/phong-dau-gia", methods=["GET"])
 def room():
     return render_template('render/room.html')
 
-
+@app.route("/", methods=["GET"])
+def home():
+    return url_controller.homeController()
 
 @app.route("/dang-ky", methods=["GET"])
 def signup():
     return render_template('render/signup.html')
+
+@app.route("/tra-gia", methods=["POST"])
+def bid():
+    return db_controller.bid()
+
+@app.route("/link-anh/<typeroom>", methods=["GET"])
+def getImage(typeroom):
+    return db_controller.getAllImage(typeroom)
+
+# @app.route("/lich-su-dau-gia", methods=["GET"])
+# def historyAuction():
+#     return url_controller.historyAuction()
+
+@app.route("/test", methods=["GET"])
+def test():
+    return app.response_class(json.dumps({"test": test.dt_string}),mimetype='application/json')
 
 if __name__ == "__main__":
     app.run(debug=True)

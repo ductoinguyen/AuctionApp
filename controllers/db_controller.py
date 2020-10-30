@@ -7,8 +7,10 @@ from fuzzywuzzy import process
 import os
 import threading
 from bson.objectid import ObjectId
-
-# import app
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
+import app
+import os, json, threading, time
+from datetime import date
 
 def getDB():
     MONGO_URL = os.environ.get('MONGO_URL')
@@ -38,23 +40,6 @@ def checkLogin(db, username, password):
         return (x['_id'], "admin")
     return -1
 
-
-# db = getDB()
-# print(checkLogin(db, "trungvuthanh", "12345678"))
-# r = db.bidder.find({"_id": ObjectId('5f8b09b5324188afd7be2ac7')})
-# for x in r:
-#     print(x['name'])
-# print()
-
-# def testcheckLogin(db, username, password):
-#     try:
-#         result = (db.watermelishCollection.find({"username": username, "password": password}, {"_id": True}))
-#         for x in result:
-#             break
-#         return (str(x['_id']))
-#     except:
-#         return -1
-
 def checkAccount(db, username):
     try:
         result = (db.auctioneer.find({"username": username}, {"_id": True}))
@@ -77,27 +62,35 @@ def checkAccount(db, username):
     except:
         return -1
 
-def signup(db, username, password, name):
-    try: 
-        # db = getDB()
-        if checkAccount(db, username) == "yes":
-            return "thất bại"
-        db.watermelishCollection.insert({"username": username, "password": password, "name": name})
-        return "thành công"
-    except:
-        return "thất bại"
-
-    
-def editAccount(db, new_password, newname):
+def bid():
+    appFlask = app.app
+    db = app.db
     try:
-        if checkLogin(db, username, old_password) == -1:
-            return "Sai mật khẩu"
-        db.watermelishCollection.update({"username": username}, {"$set": {"password": new_password, "name": name}})
-        return "Thành công"
+        id_bidder = session["id"]
+        username = session["username"]
+        price = request.form['price']
+        id_item = request.form['id_item']
+        (max_price_current, item_name, item_category) = [(x["price_max"], x["name"], x["category"]) for x in db.item.find({"_id": ObjectId(id_item)}, {"price_max": True, "name": True, "category": True})][0]
+        if price <= max_price_current:
+            return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
+        accountBalance = [x["accountBalance"] for x in db.bidder.find({"_id": ObjectId(id_bidder)}, {"accountBalance": True})][0]
+        if accountBalance < price:
+            return appFlask.response_class(json.dumps({"result": "Số dư tài khoản không đủ"}),mimetype='application/json')
+        db.item.update({"_id": ObjectId(id_item)}, {"$set": {"price_max": price, "id_bidder": id_bidder}})
+        db.bidder_history.insert({"id_bidder": id_bidder, "status": "auction", "id_item": id_item, "item_name": item_name, "item_category": item_category, "price": price})
+        return appFlask.response_class(json.dumps({"result": "Thành công"}),mimetype='application/json')
     except:
-        return "Thất bại"
+        return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
 
-# print(searchWord("nhom13", "interlet"))
-
-# db = getDB()
-# print(getTarget(db, "nhom13"))
+def getAllImage(typeroom):
+    typeroom = typeroom.strip()
+    if typeroom == "thoitrang":
+        1;
+    elif typeroom == "hoihoa":
+        1;
+    elif typeroom == "trangsuc":
+        1;
+    elif typeroom == "doco":
+        1;
+    elif typeroom == "doluuniem":
+        1;
