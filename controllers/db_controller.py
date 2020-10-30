@@ -11,6 +11,7 @@ from flask import Flask, request, jsonify, render_template, session, redirect, u
 import app
 import os, json, threading, time
 from datetime import date
+from models import room
 
 def getDB():
     MONGO_URL = os.environ.get('MONGO_URL')
@@ -82,15 +83,54 @@ def bid():
     except:
         return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
 
-def getAllImage(typeroom):
-    typeroom = typeroom.strip()
-    if typeroom == "thoitrang":
-        1;
-    elif typeroom == "hoihoa":
-        1;
-    elif typeroom == "trangsuc":
-        1;
-    elif typeroom == "doco":
-        1;
-    elif typeroom == "doluuniem":
-        1;
+def getPrimaryItemInRoom(typeroom):
+    appFlask = app.app
+    db = app.db
+    try:
+        typeroom = typeroom.strip()
+        (currentDate, currentHour) = room.getTime()
+        category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
+        type_room = category[typeroom]
+        x = [x for x in db.item.find({"category": type_room, "open_bid": currentDate, "index_session": currentHour, "status": "ready to auction"}).limit(1)][0]
+        return appFlask.response_class(json.dumps({"status": "SUC", "id_item": str(x["_id"]), "title": x["name"], "description": x["content"], "image": x["image"], "price_start": x["price_start"], "price_max": x["price_max"], "id_auctioneer": str(x["id_auctioneer"])}),mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
+
+def getInfoItem(id):
+    appFlask = app.app
+    db = app.db
+    try:
+        x = [x for x in db.item.find({"_id": ObjectId(id)}).limit(1)][0]
+        return appFlask.response_class(json.dumps({"status": "SUC", "title": x["name"], "description": x["content"], "image": x["image"], "price_start": x["price_start"], "id_auctioneer": str(x["id_auctioneer"]), "date": x["open_bid"], "hour": x["index_session"]}),mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
+
+def getInfoAuctioneer(id):
+    appFlask = app.app
+    db = app.db
+    try:
+        x = [x for x in db.auctioneer.find({"_id": ObjectId(id)}).limit(1)][0]
+        return appFlask.response_class(json.dumps({"status": "SUC", "name": x["name"], "phoneNumber": x["phoneNumber"], "address": x["address"]}),mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
+    
+def nextItem(typeroom):
+    appFlask = app.app
+    db = app.db
+    try:
+        typeroom = typeroom.strip()
+        (currentDate, currentHour) = room.getTime()
+        print(currentDate, currentHour)
+        category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
+        type_room = category[typeroom]
+        result = db.item.find({"category": type_room, "open_bid": currentDate, "index_session": currentHour, "status": "ready to auction"}, {"_id": True, "name": True, "image": True}).skip(1)
+        data = [{"status": "SUC"}]
+        for x in result:
+            data.append({
+                "id_item": str(x["_id"]),
+                "name": x["name"],
+                "image": x["image"]
+            })
+        return appFlask.response_class(json.dumps(data),mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps([{"status": "ERR"}]),mimetype='application/json')

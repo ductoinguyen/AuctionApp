@@ -39,9 +39,25 @@ def signup():
 def bid():
     return db_controller.bid()
 
-@app.route("/link-anh/<typeroom>", methods=["GET"])
-def getImage(typeroom):
-    return db_controller.getAllImage(typeroom)
+@app.route("/san-pham-chinh/<loaiphong>", methods=["GET"])
+def getItem(loaiphong):
+    return db_controller.getPrimaryItemInRoom(loaiphong)
+
+@app.route("/chi-tiet-san-pham/<id>", methods=["GET"])
+def getDetailItem(id):
+    return render_template('render/detail_item.html')
+
+@app.route("/thong-tin-san-pham/<id>", methods=["GET"])
+def getInfoItem(id):
+    return db_controller.getInfoItem(id)
+
+@app.route("/thong-tin-ben-a/<id>", methods=["GET"])
+def getInfoAuctioneer(id):
+    return db_controller.getInfoAuctioneer(id)
+
+@app.route("/san-pham-tiep-theo/<loaiphong>", methods=["GET"])
+def nextItem(loaiphong):
+    return db_controller.nextItem(loaiphong)
 
 # @app.route("/lich-su-dau-gia", methods=["GET"])
 # def historyAuction():
