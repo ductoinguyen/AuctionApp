@@ -81,7 +81,7 @@ def test():
     # now = datetime.now()
     # dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     # return app.response_class(json.dumps([{"test": str(dt_string)}]),mimetype='application/json')
-    return render_template('render/category.html')
+    return render_template('render/bid.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

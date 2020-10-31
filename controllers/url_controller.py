@@ -19,12 +19,15 @@ def logout():
 def submitLogin():
     appFlask = app.app
     try: 
-        username = request.form['username']
-        password = request.form['password']
+        try:
+            username = request.form['username']
+            password = request.form['password']
+        except:
+            username = request.get_json()["username"]
+            password = request.get_json()["password"]
     except:
         data = {"result": "Đăng nhập lại"}
         return appFlask.response_class(json.dumps(data),mimetype='application/json')
-    # print(username + " " + password)
     checkLogin = db_controller.checkLogin(app.db, username, password)
     if checkLogin == -1:
         return appFlask.response_class(json.dumps({"result": "Kiểm tra lại username và password"}), mimetype='application/json')
