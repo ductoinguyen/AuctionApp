@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <link rel="shortcut icon" href="icon.png"/>
+    <style> 
+        body {
+            color: black;
+            font-weight: 5;
+        }
+
+        a:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <div id="menu"></div>
+    <script> 
+        $(function(){
+            $("#menu").load('./static/page/menu.html');
+        });
+    </script>
+    -->
+    <nav class="navbar navbar-expand-md navbar-light border-dark border-bottom">
+        <div class="container">
+        <a class="navbar-brand text-primary" href="">
+            <img src="icon.png" style="width: 50px;">
+            <b style="color: black; padding-left: 15px;">T - Auction</b>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
+            </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;">Vũ Thành Trung</a>
+        </div>
+        </div>
+    </nav>
+    <div class="main" style="background-image: linear-gradient(45deg, rgba(19, 18, 18, 0.3), rgba(209, 209, 192, 0.3)), url('https://cdn.wallpapersafari.com/14/53/1xAB3U.jpg'); background-repeat: norepeat; background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="container py-2" style="background-color: white;">
+        <div class="time bg-success" style="text-align: center; margin: 20px 300px 20px; border: 0px solid black; border-radius: 15px;">
+            <div class="row">
+            <div class="col-md-8 text-right">
+                <h1 class="my-1" style="font-weight: 500; color: white;"> Thời gian còn lại: </h1>
+            </div>
+            <div class="col-md-4 text-left">
+                <h1 class="my-1" style="color: white; font-weight: 700;"> 17:25 </h1>
+            </div>
+            </div>
+        </div>
+        <div class="fashion bg-light" style="padding-bottom: 2px; border-radius: 10px;">
+            <div class="room-name pt-2">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2><b>Phòng Thời trang</b></h2>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="item-preview bg-light mx-3">
+            <div class="row bg-light">
+                <div class="col-md-4">
+                <img src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/b563d0f0bafd11e8a642376e30d5ddea.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://hips.hearstapps.com/hbz.h-cdn.co/assets/15/35/hbz-michael-jackson-1993-gettyimages-88796056.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://i1-giaitri.vnecdn.net/2018/01/10/life-in-color-do-manh-cuong-1515578463.jpg?w=1200&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=jQqXt_wm76MWEmqJsp1s1Q" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+            </div>
+            </div>
+            <div class="row bid-btn">
+            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            </div>
+            </div>
+        </div>
+        <div class="art my-2 bg-light" style="border-radius: 10px;">
+            <div class="room-name pt-2">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2><b>Phòng Hội họa</b></h2>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="item-preview bg-light mx-3">
+            <div class="row bg-light">
+                <div class="col-md-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/William_McTaggart_-_Spring_-_Google_Art_Project.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://media.baltictimes.com/media/photos/146160_1766082905d9dd3947a871_big.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://img.idesign.vn/2018/04/13/93889/idesign_monalisa_04a.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+            </div>
+            </div>
+            <div class="row bid-btn">
+            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            </div>
+            </div>
+        </div>
+        <div class="jewellery my-2 bg-light" style="border-radius: 10px;">
+            <div class="room-name pt-2">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2><b>Phòng Trang sức</b></h2>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="item-preview bg-light mx-3">
+            <div class="row bg-light">
+                <div class="col-md-4">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71jBNuLGcQL._SL1500_.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://specials-images.forbesimg.com/imageserve/5f48454f3e8a7c2ef7185155/960x0.jpg?fit=scale" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://likewatch.com/images/product/large/1ade5f924e776938a0bb6e5367e2f657.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+            </div>
+            </div>
+            <div class="row bid-btn">
+            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            </div>
+            </div>
+        </div>
+        <div class="antique my-2 bg-light" style="border-radius: 10px;">
+            <div class="room-name pt-2">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2><b>Phòng Đồ cổ</b></h2>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="item-preview bg-light mx-3">
+            <div class="row bg-light">
+                <div class="col-md-4">
+                <img src="https://blog.travian.com/wp-content/uploads/2017/09/Scavenger_Hunt.png" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://anhsontranduc.files.wordpress.com/2015/07/image021.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://file.hstatic.net/200000016780/article/3a0b3f8c92736f2d36621_e5fa515c4ce34a3cbbcb3484de80ed3c_1024x1024.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+            </div>
+            </div>
+            <div class="row bid-btn">
+            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            </div>
+            </div>
+        </div>
+        <div class="souvenir my-2 bg-light" style="border-radius: 10px;">
+            <div class="room-name pt-2">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2><b>Phòng Đồ lưu niệm</b></h2>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="item-preview bg-light mx-3">
+            <div class="row bg-light">
+                <div class="col-md-4">
+                <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/05/24/09/rusty-rio-medals.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://news.otofun.net/stores/news_dataimages/CTV/012019/02/14/3931_2111860-214-jk-3-a9tsl86wgbwno4gjkstf.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+                <div class="col-md-4">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61mWjm8MvXL._AC_SL1100_.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
+                </div>
+            </div>
+            </div>
+            <div class="row bid-btn">
+            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+            <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                <li class="nav-item"> <a class="nav-link active" href="" style="color: white;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" target="_blank" style="color: white;">Bản đồ</a> </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                <a>
+                    <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                </a> </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="mt-2 mb-0" contenteditable="true"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" style=""></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
