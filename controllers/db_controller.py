@@ -9,6 +9,7 @@ import threading
 from bson.objectid import ObjectId
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
 import app
+from models import room
 import os, json, threading, time
 from datetime import date
 from models import room
@@ -79,6 +80,7 @@ def bid():
             return appFlask.response_class(json.dumps({"result": "Số dư tài khoản không đủ"}),mimetype='application/json')
         db.item.update({"_id": ObjectId(id_item)}, {"$set": {"price_max": price, "id_bidder": id_bidder}})
         db.bidder_history.insert({"id_bidder": id_bidder, "status": "auction", "id_item": id_item, "item_name": item_name, "item_category": item_category, "price": price})
+        room.updateTimeRemaining(item_category)
         return appFlask.response_class(json.dumps({"result": "Thành công"}),mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
@@ -91,7 +93,8 @@ def getPrimaryItemInRoom(typeroom):
         (currentDate, currentHour) = room.getTime()
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
-        x = [x for x in db.item.find({"category": type_room, "open_bid": currentDate, "index_session": currentHour, "status": "ready to auction"}).limit(1)][0]
+        x = [x for x in db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}).limit(1)][0]
+        app.primaryItemId[app.indexRoom[type_room]] = str(x["_id"])
         return appFlask.response_class(json.dumps({"status": "SUC", "id_item": str(x["_id"]), "title": x["name"], "description": x["content"], "image": x["image"], "price_start": x["price_start"], "price_max": x["price_max"], "id_auctioneer": str(x["id_auctioneer"])}),mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
@@ -123,7 +126,7 @@ def nextItem(typeroom):
         print(currentDate, currentHour)
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
-        result = db.item.find({"category": type_room, "open_bid": currentDate, "index_session": currentHour, "status": "ready to auction"}, {"_id": True, "name": True, "image": True}).skip(1)
+        result = db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "name": True, "image": True}).skip(1)
         data = [{"status": "SUC"}]
         for x in result:
             data.append({
@@ -134,3 +137,19 @@ def nextItem(typeroom):
         return appFlask.response_class(json.dumps(data),mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps([{"status": "ERR"}]),mimetype='application/json')
+
+def checkToSaveInfo(id):
+    session["id_item"] = id
+    appFlask = app.app
+    db = app.db
+    try:
+        if 'username' in session and session["type_account"] == "bidder":
+            (max_price_current, item_name, item_category) = [(x["price_max"], x["name"], x["category"]) for x in db.item.find({"_id": ObjectId(id)}, {"price_max": True, "name": True, "category": True})][0]
+            db.bidder_history.insert({"id_bidder": str(session["id"]), "status": "readinfo", "id_item": id, "item_name": item_name, "item_category": item_category, "price": max_price_current})
+    except:
+        return   
+
+def getPricemaxTime(loaiphong, id_item):
+    id_item = id_item.strip()
+    appFlask = app.app
+    return appFlask.response_class(json.dumps([{"timeremaning": room.checkTimeRemaining(loaiphong)}]),mimetype='application/json')
