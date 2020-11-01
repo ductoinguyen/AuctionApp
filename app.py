@@ -4,15 +4,15 @@ import os, json, threading, time
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from models import room, account
+from models import room as t_rom, account
 
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 db = db_controller.getDB()
-timeRoom = room.initTimeRoom()
-indexRoom = room.createIndexRoom()
+timeRoom = t_rom.initTimeRoom()
+indexRoom = t_rom.createIndexRoom()
 primaryItemId = ["" for _ in range(5)]
 
 @app.route("/dang-nhap", methods=["GET"])
@@ -79,6 +79,10 @@ def historyAuction():
 @app.route("/getNameAccount", methods=["GET"])
 def getNameAccount():
     return account.getNameAccount()
+
+@app.route("/getTimeRemaining", methods=["GET"])
+def timeRemaining():
+    return t_rom.timeRemaining()
 
 @app.route("/test", methods=["GET"])
 def test():

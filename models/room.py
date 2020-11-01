@@ -1,7 +1,8 @@
 from datetime import datetime
 import time
-import app
+import app, json
 from bson.objectid import ObjectId
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
 
 def createIndexRoom():
     return {"thoitrang": 0, "hoihoa": 1, "trangsuc": 2, "doluuniem": 3, "doco": 4}
@@ -12,7 +13,7 @@ def getTime():
 
 def initTimeRoom():
     now = datetime.now()
-    duration = 3600 - int(now.strftime("%M"))*60 + int(now.strftime("%S"))
+    duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
     return [(now, duration) for _ in range(5)]
     
 def differenceTime(first, second):
@@ -38,12 +39,30 @@ def checkTimeRemaining(typeroom):
         except:
             1
     timeRemaining = time_room[1] - (diffTime[0]*60 + diffTime[1])
-    return str(timeRemaining // 60) + ":" + str(timeRemaining % 60)
+    mins = timeRemaining // 60
+    mins = '0' + str(mins) if mins < 10 else str(mins)
+    secd = timeRemaining % 60
+    secd = '0' + str(secd) if mins < 10 else str(secd)
+    return mins + ":" + secd
 
 def updateTimeRemaining(item_category):
     indexCategories = {"Thời trang": 0, "Hội họa": 1, "Trang sức": 2, "Đồ lưu niệm": 3, "Đồ cổ": 4}
     app.timeRoom[indexCategories[item_category]] = (datetime.now(), 5*60)
         
+def timeRemaining():
+    appFlask = app.app
+    try: 
+        now = datetime.now()
+        timeRemaining = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
+        mins = timeRemaining // 60
+        mins = '0' + str(mins) if mins < 10 else str(mins)
+        secd = timeRemaining % 60
+        secd = '0' + str(secd) if secd < 10 else str(secd)
+        return appFlask.response_class(json.dumps({"timeRemaining": mins + ":" + secd}), mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps({"timeRemaining": "00:00"}), mimetype='application/json')
+    
+
 
 # first = datetime.now()
 # time.sleep(130)
