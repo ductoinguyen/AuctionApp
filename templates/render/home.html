@@ -6,8 +6,8 @@
     <title>Sàn đấu giá online T - Auction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
-    <link rel="stylesheet" href="../../static/style/theme.css" type="text/css">
-    <link rel="shortcut icon" href="../../static/image/icon.png"/>
+    <link rel="stylesheet" href="../static/style/theme.css" type="text/css">
+    <link rel="shortcut icon" href="../static/image/icon.png"/>
     <style> 
         body {
             color: black;
@@ -18,13 +18,39 @@
             cursor: pointer;
             text-decoration: none;
         }
+
+        .dropdown-menu {
+            //display: none;
+            position: relative;
+            left: auto;
+            right: 6%;
+            margin: 0;
+            padding: 10px 10px;
+            max-width: 210px;
+        }
+    
+        .dropdown-menu a:hover {
+            background-color: #dee2e3;
+        }
+        
+        .account-menu:hover .dropdown-menu {
+            display: block;
+        }
     </style>
+    <script> /*
+        $(document).ready(function(){
+        $(".account-btn").click(function(){
+            $(".dropdown-menu").slideToggle();
+        });
+        });
+        */
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
         <div class="container">
         <a class="navbar-brand text-primary" href="">
-            <img src="../../static/image/icon.png" style="width: 50px;">
+            <img src="../static/image/icon.png" style="width: 50px;">
             <b style="color: black; padding-left: 15px;">T - Auction</b>
         </a>
         <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
@@ -32,10 +58,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar4">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="/" style="color: black;">Trang chủ</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="cac-phong-dau-gia" style="color: black;">Phòng đấu giá</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
-            </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+                <li class="nav-item"> <a class="nav-link" href="/" style="color: black;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="cac-phong-dau-gia" style="color: black;">Phòng đấu giá</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
+                <li class="account-menu">
+                    <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+                    <div class="nav-link dropdown-menu container">
+                        <a class="nav-link menu-item edit-account" href="" style="text-align: center; color: black;" >Chỉnh sửa thông tin</a>
+                        <a class="nav-link menu-item logout" href="" style="text-align: center; color: black;"> Đăng xuất</a>
+                    </div>
+                </li>
+            </ul> 
         </div>
         </div>
     </nav>
@@ -134,7 +167,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-            <p class="mt-2 mb-0" contenteditable="true" style=""><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+            <p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
             </div>
         </div>
         </div>

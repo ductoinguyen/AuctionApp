@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
+    <link rel="stylesheet" href="../static/style/theme.css" type="text/css">
+    <link rel="shortcut icon" href="../static/image/icon.png"/>
+    <style> 
+        body {
+            color: black;
+            font-weight: 5;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
+        <div class="container">
+        <a class="navbar-brand text-primary" href="">
+            <img src="../static/image/icon.png" style="width: 50px;">
+            <b style="color: black; padding-left: 15px;">T - Auction</b>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
+            <li class=" account-menu">
+                <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="main container">
+        <div class="row header container mt-2" style="margin-left: 15px;">
+        <div class="col-md-6" style="">
+            <h1> Lịch sử giao dịch </h1>
+        </div>
+        <div class="col-md-2 px-0" style="">
+            <h1> Số dư: </h1>
+        </div>
+        <div class="col-md-4 px-0">
+            <h1 id="account-balance"> 69,999,999,999 VNĐ</h1>
+        </div>
+        </div>
+        <div class="main container bg-info py-1">
+        <div class="each-item container my-3" style="border-radius: 7px; background-color: white; box-shadow: 2px 2px 10px grey;">
+            <div class="row">
+            <div class="col-md-8 details py-2">
+                <div class="row item-name my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="border-bottom pl-2"><b> Tên SP: </b></h4>
+                </div>
+                <div class="col-md-8">
+                    <h4 style="font-size: 30px;" class="border-bottom"><b> Bông tai đính đá </b></h4>
+                </div>
+                </div>
+                <div class="row open-bid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá gốc: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 255,999,999 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row status my-2">
+                <div class="col-md-4" style="">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Trạng thái: </b></h4>
+                </div>
+                <div class="col-md-8 pl-0" style="">
+                    <h4 class="px-2 text-success" style="font-weight: 700; font-size: 30px;"> THÀNH CÔNG </h4>
+                </div>
+                </div>
+                <div class="row paid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá trả: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1,305,658,000 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row date">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom">
+                    <b>Ngày đấu giá:</b>
+                    </h4>
+                </div>
+                <div class="col-md-8" id="bid-date">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1/11/2020 </h4>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 picture">
+                <img src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width:100%;">
+            </div>
+            </div>
+        </div>
+        <div class="each-item container my-3" style="border-radius: 7px; background-color: white; box-shadow: 2px 2px 10px grey;">
+            <div class="row">
+            <div class="col-md-8 details py-2">
+                <div class="row item-name my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="border-bottom pl-2"><b> Tên SP: </b></h4>
+                </div>
+                <div class="col-md-8">
+                    <h4 style="font-size: 30px;" class="border-bottom"><b> Bông tai đính đá </b></h4>
+                </div>
+                </div>
+                <div class="row open-bid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá gốc: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 255,999,999 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row status my-2">
+                <div class="col-md-4" style="">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Trạng thái: </b></h4>
+                </div>
+                <div class="col-md-8 pl-0" style="">
+                    <h4 class="px-2" style="font-weight: 700; font-size: 30px; color: red;"> THẤT BẠI </h4>
+                </div>
+                </div>
+                <div class="row paid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá trả: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1,305,658,000 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row date">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom">
+                    <b>Ngày đấu giá:</b>
+                    </h4>
+                </div>
+                <div class="col-md-8" id="bid-date">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1/11/2020 </h4>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 picture">
+                <img src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width:100%;">
+            </div>
+            </div>
+        </div>
+        <div class="each-item container my-3" style="border-radius: 7px; background-color: white; box-shadow: 2px 2px 10px grey;">
+            <div class="row">
+            <div class="col-md-8 details py-2">
+                <div class="row item-name my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="border-bottom pl-2"><b> Tên SP: </b></h4>
+                </div>
+                <div class="col-md-8">
+                    <h4 style="font-size: 30px;" class="border-bottom"><b> Bông tai đính đá </b></h4>
+                </div>
+                </div>
+                <div class="row open-bid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá gốc: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 255,999,999 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row status my-2">
+                <div class="col-md-4" style="">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Trạng thái: </b></h4>
+                </div>
+                <div class="col-md-8 pl-0" style="">
+                    <h4 class="px-2 text-success" style="font-weight: 700; font-size: 30px;"> THÀNH CÔNG </h4>
+                </div>
+                </div>
+                <div class="row paid my-2">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom"><b> Giá trả: </b></h4>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1,305,658,000 </h4>
+                </div>
+                <div class="col-md-4 pl-0">
+                    <h4 style="font-size: 30px;" class="border-bottom"> VNĐ </h4>
+                </div>
+                </div>
+                <div class="row date">
+                <div class="col-md-4">
+                    <h4 style="font-size: 30px;" class="pl-2 border-bottom">
+                    <b>Ngày đấu giá:</b>
+                    </h4>
+                </div>
+                <div class="col-md-8" id="bid-date">
+                    <h4 style="font-size: 30px;" class="border-bottom"> 1/11/2020 </h4>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 picture">
+                <img src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width:100%;">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+            <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                <li class="nav-item"> <a class="nav-link active" href="" style="color: white;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                <li class="nav-item app-map"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" target="_blank" style="color: white;">Bản đồ</a> </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                <a>
+                    <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                </a> </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+            <p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../static/script/common.js"></script>
+</body>
+</html>
