@@ -1,22 +1,148 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sàn đấu giá online</title>
-    <link rel="shortcut icon" href="../static/image/icon.png"/>
-    <link rel="stylesheet" href="../static/style/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
+    <link rel="stylesheet" href="../../static/style/theme.css" type="text/css">
+    <link rel="shortcut icon" href="../../static/image/icon.png"/>
+    <style> 
+        body {
+            color: black;
+            font-weight: 5;
+        }
+        
+        a:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="menu"></div>
-    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam repellendus quidem consequatur reprehenderit vel nobis, hic velit a beatae vero neque? Perspiciatis sunt exercitationem ipsa animi illo a ut corrupti!</div>
-    <img src="../static/image/icon.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
-
-    <script src="jquery.js"></script> 
-    <script> 
-        $(function(){
-        $("#menu").load(""); 
-        });
-    </script> 
+    <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
+        <div class="container">
+        <a class="navbar-brand text-primary" href="">
+            <img src="../../static/image/icon.png" style="width: 50px;">
+            <b style="color: black; padding-left: 15px;">T - Auction</b>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
+            </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;">Vũ Thành Trung</a>
+        </div>
+        </div>
+    </nav>
+    <div class="main container">
+        <div class="banner row" style="background: linear-gradient(90deg, rgba(39,59,122,1) 23%, rgba(255,255,255,1) 100%);">
+        <div class="col-md-6">
+            <div class="row">
+            <h1 style="color: white; margin-top: 40px; font-weight: 500; width: 100%; text-align: right; text-shadow: 0 2px 7px;"> SÀN ĐẤU GIÁ TRỰC TUYẾN </h1>
+            </div>
+            <div class="row">
+            <h1 class="my-2" style="color: white; font-weight: 500; font-size: 80px; width: 100%; text-align: right; text-shadow: 0 2px 7px;"> T - AUCTION </h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="https://cdn.vietnambiz.vn/2019/11/7/2-1573102731845914858893.png">
+        </div>
+        </div>
+        <div class="content">
+        <div class="quality">
+            <div class="row secure">
+            <div class="col-md-12">
+                <div class="row bg-light">
+                <div class="col-md-9 text-justify px-5">
+                    <div class="row">
+                    <h4 class="w-100" style="margin-top: 70px; font-size: 25px;"><i><b>Đấu giá trực tuyến là cách cho phép người tham gia đấu giá các sản phẩm hoặc các dịch vụ thông qua Internet. Đấu giá kiểu Anh hay đấu giá tăng dần là hình thức được nhiều người biết đến nhất.</b></i></h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://miro.medium.com/max/256/1*g1QNuj3lgSnsF-sgNAueHg@2x.png">
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row secure">
+            <div class="col-md-12">
+                <div class="row">
+                <div class="col-md-3">
+                    <img src="../../static/image/fast-money-transfer-icon.jpg" width="256" height="256">
+                </div>
+                <div class="col-md-9 text-justify px-5">
+                    <div class="row">
+                    <h4 class="w-100" style="margin-top: 60px; font-size: 25px;"><i><b>Phương thức này phổ biến nhất trong các cuộc đấu giá, tại đó những người mua đưa ra các mức giá chào mua bằng việc hô giá công khai (open outcry) theo trình tự tăng dần cho đến khi không có mức giá chào mua nào cao hơn được đưa ra.</b></i></h4>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row secure">
+            <div class="col-md-12">
+                <div class="row bg-light" style="height: auto;">
+                <div class="col-md-9 text-justify px-5">
+                    <div class="row">
+                    <h4 class="w-100 mb-0" style="margin: 40px 0; font-size: 24px;"><i><b>Mức giá chào mua cao nhất sau cùng này sẽ được người tổ chức đấu giá chấp nhận. Điều hành sàn đấu giá sẽ là một tổ chức có uy tín, chức năng của tổ chức này là giám sát các phiên đấu giá và quản lí các bên tham gia, đảm bảo tính chính xác, trung thực của các phiên đấu giá, cũng như ràng buộc trách nhiệm các bên tham gia.</b></i></h4>
+                    </div>
+                </div>
+                <div class="col-md-3 px-0" style="">
+                    <img src="https://paisec.com.au/wp-content/uploads/2020/09/Online_Shopping_-_Laptop_to_Shopping_Cart-scaled-e1583108639152.jpg" class="" style="width:;">
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="row to-category-btn">
+        <div class="col-md-4">
+        </div>
+        <a class="col-md-4 text-center my-2 bg-success border-0" style="border-radius: 10px;" href="">
+            <h3 style="color: white; font-weight: 500;" class="my-2"> ĐẤU GIÁ NGAY <i class="fa fa-angle-double-right"></i></h3>
+        </a>
+        <div class="col-md-4">
+        </div>
+        </div>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+            <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                <li class="nav-item"> <a class="nav-link active" href="" style="color: white;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                <li class="nav-item app-map"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" target="_blank" style="color: white;">Bản đồ</a> </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                <a>
+                    <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                </a> </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+            <p class="mt-2 mb-0" contenteditable="true" style=""><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" style=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" style=""></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+  
 </body>
+
 </html>
