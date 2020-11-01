@@ -24,18 +24,18 @@ def getDB():
     return db
 
 def checkLogin(db, username, password):
-    result = (db.auctioneer.find({"username": username, "password": password}, {"_id": True}))
+    result = (db.auctioneer.find({"username": username, "password": password}, {"_id": True, "name": True}))
     x = []
     for x in result:
         break
     if len(x) > 0:
         return (x['_id'], "auctioneer")
-    result = (db.bidder.find({"username": username, "password": password}, {"_id": True}))
+    result = (db.bidder.find({"username": username, "password": password}, {"_id": True, "name": True}))
     for x in result:
         break
     if len(x) > 0:
         return (x['_id'], "bidder")
-    result = (db.admin.find({"username": username, "password": password}, {"_id": True}))
+    result = (db.admin.find({"username": username, "password": password}, {"_id": True, "name": True}))
     for x in result:
         break
     if len(x) > 0:

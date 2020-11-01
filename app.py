@@ -4,7 +4,7 @@ import os, json, threading, time
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from models import room
+from models import room, account
 
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
@@ -75,6 +75,10 @@ def nextItem(loaiphong):
 @app.route("/lich-su-dau-gia", methods=["GET"])
 def historyAuction():
     return url_controller.historyAuction()
+
+@app.route("/getNameAccount", methods=["GET"])
+def getNameAccount():
+    return account.getNameAccount()
 
 @app.route("/test", methods=["GET"])
 def test():
