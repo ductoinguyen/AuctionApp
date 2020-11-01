@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
+    <link rel="stylesheet" href="../static/style/theme.css" type="text/css">
+    <link rel="shortcut icon" href="../static/image/icon.png"/>
+    <style> 
+        body {
+            color: black;
+            font-weight: 5;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
+        <div class="container">
+        <a class="navbar-brand text-primary" href="">
+            <img src="../static/image/icon.png" style="width: 50px;">
+            <b style="color: black; padding-left: 15px;">T - Auction</b>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+            <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
+            <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
+            </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn ml-auto mr-4" style="color: black;" id="sign-in">Đăng nhập</a>
+        </div>
+        </div>
+    </nav>
+    <div class="main container">
+        <div class="pt-3 pb-0">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-5 p-4">
+                <h1>Đăng ký</h1>
+                <form id="c_form-h" class="">
+                <div class="form-group row">
+                    <div class="col-10">
+                    <input type="text" class="form-control" id="form11" placeholder="Username"> </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-10">
+                    <input type="password" class="form-control" id="form12" placeholder="Password"> </div>
+                </div>
+                </form>
+            </div>
+            <div class="col-md-7 text-left px-4">
+                <img src="https://www.hilokal.com/images/profile_pictures/profile_stock.png">
+                <input type="file" id="uploadFile" class="pl-4">
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-5 p-4" style="">
+                <p class="lead mt-"><b>Liên kết ngân hàng</b></p>
+                <div class="bank-list">
+                <img src="https://i2.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-BIDV.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
+                <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Vietcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
+                <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Techcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
+                <img src="https://i0.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/Agribank-logo.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
+                </div>
+                <p class="lead"> <b>Số tài khoản</b></p>
+                <input class="form-control" type="text" placeholder="14 chữ số">
+                <p class="lead mt-2"> <b>Mật khẩu</b></p>
+                <input class="form-control" type="password" placeholder="Password">
+                <div class="row">
+                <div class="col-md-6">
+                    <p class="lead mt-3"> <b>Hỗ trợ kỹ thuật</b> </p>
+                    <p> <a href="">+1 234 567 89</a> </p>
+                    <p> <a href="">support@tauction.com</a> </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="lead mt-3"> <b>CSKH</b></p>
+                    <p> <a href="">+1 234 567 89</a></p>
+                    <p> <a href="">sales@tauction.com</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-7 p-4">
+                <div>
+                </div>
+                <h3 class="mb-3">Thông tin cá nhân</h3>
+                <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="Họ"> </div>
+                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Tên"> </div>
+                </div>
+                <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Địa chỉ (tùy chọn)"> </div>
+                <div class="form-group"> <input type="email" class="form-control" id="form39" placeholder="Email"> </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form40" placeholder="Số điện thoại"> </div>
+                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form41" placeholder="Khu vực"> </div>
+                </div>
+                <div class="form-group"> <textarea class="form-control" id="form43" rows="3" placeholder="Thông tin khác"></textarea> </div> <button class="btn btn-success" onclick="submitSignUp()">Đăng ký</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+            <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                <li class="nav-item"> <a class="nav-link active" href="" style="color: white;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                <li class="nav-item app-map"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" style="color: white;" target="_blank">Bản đồ</a> </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                <a>
+                    <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                </a>
+                <a>
+                    <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                </a> </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+            <p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../static/script/common.js"></script>
+</body>
+</html>
