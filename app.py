@@ -32,7 +32,8 @@ def rooms():
     return render_template('render/category.html')
 
 @app.route("/phong-dau-gia/<loaiphong>", methods=["GET"])
-def room():
+def room(loaiphong):
+    session["typeroom"] = loaiphong
     return render_template('render/bid.html')
 
 @app.route("/", methods=["GET"])
@@ -83,6 +84,10 @@ def getNameAccount():
 @app.route("/getTimeRemaining", methods=["GET"])
 def timeRemaining():
     return t_rom.timeRemaining()
+
+@app.route("/getItemInRoom/<loaiphong>", methods=["GET"])
+def getItemInRoom(loaiphong):
+    return t_rom.getItemInRoom(loaiphong)
 
 @app.route("/test", methods=["GET"])
 def test():

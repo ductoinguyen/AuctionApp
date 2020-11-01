@@ -62,7 +62,19 @@ def timeRemaining():
     except:
         return appFlask.response_class(json.dumps({"timeRemaining": "00:00"}), mimetype='application/json')
     
-
+def getItemInRoom(loaiphong):
+    appFlask = app.app
+    db = app.db
+    category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
+    type_room = category[loaiphong]
+    (currentDate, currentHour) = getTime()
+    x = [x for x in db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "image": True}).limit(3)]
+    if len(x) == 0:
+        return appFlask.response_class(json.dumps([{"status": "NULL"}]), mimetype='application/json')
+    data = [{"id_item": str(i["_id"]), "image": i["image"]} for i in x]
+    data.append({"status": "HAVE"})
+    return appFlask.response_class(json.dumps(data), mimetype='application/json')
+        
 
 # first = datetime.now()
 # time.sleep(130)

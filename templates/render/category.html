@@ -18,6 +18,9 @@
             cursor: pointer;
             text-decoration: none;
         }
+        .buttonDauGia {
+            cursor: pointer !important; 
+        }
     </style>
 </head>
 <body>
@@ -32,7 +35,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar4">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="./" style="color: black;">Trang chủ</a> </li>
             <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
             <li class="nav-item"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
             </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
@@ -62,23 +65,15 @@
             </div>
             </div>
             <div class="item-preview bg-light mx-3">
-            <div class="row bg-light">
-                <div class="col-md-4">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/b563d0f0bafd11e8a642376e30d5ddea.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://hips.hearstapps.com/hbz.h-cdn.co/assets/15/35/hbz-michael-jackson-1993-gettyimages-88796056.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://i1-giaitri.vnecdn.net/2018/01/10/life-in-color-do-manh-cuong-1515578463.jpg?w=1200&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=jQqXt_wm76MWEmqJsp1s1Q" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
+            <div class="row bg-light" id="mienThoiTrang"> </div>
             </div>
-            </div>
+            <a id="buttonThoiTrang" href="/phong-dau-gia/thoitrang">
             <div class="row bid-btn">
             <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
-                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+                <h3 class="m-0 p-1 text-white buttonDauGia"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
             </div>
             </div>
+            </a>
         </div>
         <div class="art my-2 bg-light" style="border-radius: 10px;">
             <div class="room-name pt-2">
@@ -91,23 +86,15 @@
             </div>
             </div>
             <div class="item-preview bg-light mx-3">
-            <div class="row bg-light">
-                <div class="col-md-4">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/William_McTaggart_-_Spring_-_Google_Art_Project.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://media.baltictimes.com/media/photos/146160_1766082905d9dd3947a871_big.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://img.idesign.vn/2018/04/13/93889/idesign_monalisa_04a.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
+            <div class="row bg-light" id="mienHoiHoa"> </div>
             </div>
-            </div>
+            <a id="buttonHoiHoa" href="/phong-dau-gia/hoihoa">
             <div class="row bid-btn">
             <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
-                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+                <h3 class="m-0 p-1 text-white buttonDauGia"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
             </div>
             </div>
+            </a>        
         </div>
         <div class="jewellery my-2 bg-light" style="border-radius: 10px;">
             <div class="room-name pt-2">
@@ -120,23 +107,15 @@
             </div>
             </div>
             <div class="item-preview bg-light mx-3">
-            <div class="row bg-light">
-                <div class="col-md-4">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/71jBNuLGcQL._SL1500_.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://specials-images.forbesimg.com/imageserve/5f48454f3e8a7c2ef7185155/960x0.jpg?fit=scale" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://likewatch.com/images/product/large/1ade5f924e776938a0bb6e5367e2f657.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
+            <div class="row bg-light" id="mienTrangSuc"> </div>
             </div>
-            </div>
+            <a id="buttonTrangSuc" href="/phong-dau-gia/trangsuc">
             <div class="row bid-btn">
-            <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
-                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+            <div class="bg-success my-2 ml-4 buttonDauGia" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
+                <h3 class="m-0 p-1 text-white buttonDauGia"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
             </div>
             </div>
+            </a>
         </div>
         <div class="antique my-2 bg-light" style="border-radius: 10px;">
             <div class="room-name pt-2">
@@ -149,23 +128,15 @@
             </div>
             </div>
             <div class="item-preview bg-light mx-3">
-            <div class="row bg-light">
-                <div class="col-md-4">
-                <img src="https://blog.travian.com/wp-content/uploads/2017/09/Scavenger_Hunt.png" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://anhsontranduc.files.wordpress.com/2015/07/image021.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://file.hstatic.net/200000016780/article/3a0b3f8c92736f2d36621_e5fa515c4ce34a3cbbcb3484de80ed3c_1024x1024.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
+            <div class="row bg-light" id="mienDoCo"></div>
             </div>
-            </div>
+            <a id="buttonDoCo" href="/phong-dau-gia/doco">
             <div class="row bid-btn">
             <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
-                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+                <h3 class="m-0 p-1 text-white buttonDauGia"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
             </div>
             </div>
+            </a>
         </div>
         <div class="souvenir my-2 bg-light" style="border-radius: 10px;">
             <div class="room-name pt-2">
@@ -178,23 +149,15 @@
             </div>
             </div>
             <div class="item-preview bg-light mx-3">
-            <div class="row bg-light">
-                <div class="col-md-4">
-                <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/05/24/09/rusty-rio-medals.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://news.otofun.net/stores/news_dataimages/CTV/012019/02/14/3931_2111860-214-jk-3-a9tsl86wgbwno4gjkstf.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
-                <div class="col-md-4">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/61mWjm8MvXL._AC_SL1100_.jpg" style="width: 330px; border-radius: 10px; height: 330px;">
-                </div>
+            <div class="row bg-light" id="mienDoLuuNiem"></div>
             </div>
-            </div>
+            <a id="buttonDoLuuNiem" href="/phong-dau-gia/doluuniem">
             <div class="row bid-btn">
             <div class="bg-success my-2 ml-4" style="text-align: center; border-radius: 7px; width: 170px; float: right;">
-                <h3 class="m-0 p-1 text-white"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
+                <h3 class="m-0 p-1 text-white buttonDauGia"> ĐẤU GIÁ <i class="fa fa-angle-double-right"></i></h3>
             </div>
             </div>
+            </a>
         </div>
         </div>
     </div>
