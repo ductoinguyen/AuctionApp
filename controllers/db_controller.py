@@ -29,17 +29,17 @@ def checkLogin(db, username, password):
     for x in result:
         break
     if len(x) > 0:
-        return (x['_id'], "auctioneer")
+        return (x['_id'], "auctioneer", x["name"])
     result = (db.bidder.find({"username": username, "password": password}, {"_id": True, "name": True}))
     for x in result:
         break
     if len(x) > 0:
-        return (x['_id'], "bidder")
+        return (x['_id'], "bidder", x["name"])
     result = (db.admin.find({"username": username, "password": password}, {"_id": True, "name": True}))
     for x in result:
         break
     if len(x) > 0:
-        return (x['_id'], "admin")
+        return (x['_id'], "admin", x["name"])
     return -1
 
 def checkAccount(db, username):
