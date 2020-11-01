@@ -13,6 +13,10 @@
             color: black;
             font-weight: 5;
         }
+        a:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -36,72 +40,65 @@
     </nav>
     <div class="main container">
         <div class="pt-3 pb-0">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-5 p-4">
-                <h1>Đăng ký</h1>
-                <form id="c_form-h" class="">
-                <div class="form-group row">
-                    <div class="col-10">
-                    <input type="text" class="form-control" id="form11" placeholder="Username"> </div>
+            <div class="container">
+                <div class="row pb-4">
+                    <div class="col-md-5 p-4">
+                        <h1>Đăng ký</h1>
+                        <form id="c_form-h" class="">
+                            <div class="form-group row">
+                                <div class="col-10">
+                                    <input type="text" class="form-control" id="form11" placeholder="Username"> 
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-10">
+                                    <input type="password" class="form-control" id="form12" placeholder="Password">
+                                </div>
+                            </div>
+                        </form>
+                        <p class="lead mt-"><b>Liên kết ngân hàng</b></p>
+                        <div class="bank-list">
+                            <img src="https://i2.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-BIDV.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
+                            <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Vietcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
+                            <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Techcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
+                            <img src="https://i0.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/Agribank-logo.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
+                        </div>
+                        <p class="lead"> <b>Số tài khoản</b></p>
+                        <input class="form-control" type="text" placeholder="14 chữ số">
+                        <p class="lead mt-2"> <b>Mật khẩu</b></p>
+                        <input class="form-control" type="password" placeholder="Password">
+                    </div>
+                    <div class="col-md-7 text-left px-4 pt-4">
+                        <h3 class="mb-3">Thông tin cá nhân</h3>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="Họ"> </div>
+                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Tên"> </div>
+                            </div>
+                            <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Địa chỉ (tùy chọn)"> </div>
+                            <div class="form-group"> <input type="email" class="form-control" id="form39" placeholder="Email"> </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form40" placeholder="Số điện thoại"> </div>
+                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form41" placeholder="Khu vực"> </div>
+                            </div>
+                            <div class="form-group"> <textarea class="form-control" id="form43" rows="3" placeholder="Thông tin khác"></textarea> </div>
+                            <button class="btn btn-success" onclick="submitSignUp()">Đăng ký</button>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="lead mt-3"> <b>Hỗ trợ kỹ thuật</b> </p>
+                                <p> <a href="">+1 234 567 89</a> </p>
+                                <p> <a href="">support@tauction.com</a> </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="lead mt-3"> <b>CSKH</b></p>
+                                <p> <a href="">+1 234 567 89</a></p>
+                                <p> <a href="">sales@tauction.com</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-10">
-                    <input type="password" class="form-control" id="form12" placeholder="Password"> </div>
-                </div>
-                </form>
             </div>
-            <div class="col-md-7 text-left px-4">
-                <img src="https://www.hilokal.com/images/profile_pictures/profile_stock.png">
-                <input type="file" id="uploadFile" class="pl-4">
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-md-5 p-4" style="">
-                <p class="lead mt-"><b>Liên kết ngân hàng</b></p>
-                <div class="bank-list">
-                <img src="https://i2.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-BIDV.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
-                <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Vietcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
-                <img src="https://i1.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/logo-ngan-hang-Techcombank.png?resize=213%2C76&amp;ssl=1" style="width: 40%;" class="mb-2">
-                <img src="https://i0.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/Agribank-logo.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;">
-                </div>
-                <p class="lead"> <b>Số tài khoản</b></p>
-                <input class="form-control" type="text" placeholder="14 chữ số">
-                <p class="lead mt-2"> <b>Mật khẩu</b></p>
-                <input class="form-control" type="password" placeholder="Password">
-                <div class="row">
-                <div class="col-md-6">
-                    <p class="lead mt-3"> <b>Hỗ trợ kỹ thuật</b> </p>
-                    <p> <a href="">+1 234 567 89</a> </p>
-                    <p> <a href="">support@tauction.com</a> </p>
-                </div>
-                <div class="col-md-6">
-                    <p class="lead mt-3"> <b>CSKH</b></p>
-                    <p> <a href="">+1 234 567 89</a></p>
-                    <p> <a href="">sales@tauction.com</a></p>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-7 p-4">
-                <div>
-                </div>
-                <h3 class="mb-3">Thông tin cá nhân</h3>
-                <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="Họ"> </div>
-                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Tên"> </div>
-                </div>
-                <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Địa chỉ (tùy chọn)"> </div>
-                <div class="form-group"> <input type="email" class="form-control" id="form39" placeholder="Email"> </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form40" placeholder="Số điện thoại"> </div>
-                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form41" placeholder="Khu vực"> </div>
-                </div>
-                <div class="form-group"> <textarea class="form-control" id="form43" rows="3" placeholder="Thông tin khác"></textarea> </div> <button class="btn btn-success" onclick="submitSignUp()">Đăng ký</button>
-                </form>
-            </div>
-            </div>
-        </div>
         </div>
     </div>
     <footer class="py-3 bg-dark text-white">
