@@ -88,13 +88,13 @@ def bid():
 def getPrimaryItemInRoom(typeroom):
     appFlask = app.app
     db = app.db
-    try:
+    try:    
         typeroom = typeroom.strip()
         (currentDate, currentHour) = room.getTime()
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
         x = [x for x in db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}).limit(1)][0]
-        app.primaryItemId[app.indexRoom[type_room]] = str(x["_id"])
+        app.primaryItemId[app.indexRoom[typeroom]] = str(x["_id"])
         return appFlask.response_class(json.dumps({"status": "SUC", "id_item": str(x["_id"]), "title": x["name"], "description": x["content"], "image": x["image"], "price_start": x["price_start"], "price_max": x["price_max"], "id_auctioneer": str(x["id_auctioneer"])}),mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
