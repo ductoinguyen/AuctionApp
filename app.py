@@ -44,6 +44,7 @@ def home():
 def signup():
     return render_template('render/signup.html')
 
+# ben B tra gia san pham
 @app.route("/tra-gia", methods=["POST"])
 def bid():
     return db_controller.bid()
@@ -52,9 +53,9 @@ def bid():
 def getItem(loaiphong):
     return db_controller.getPrimaryItemInRoom(loaiphong)
 
-@app.route("/pricemax-time/<loaiphong>/<id_item>", methods=["GET"])
-def getPricemaxTime(loaiphong, id_item):
-    return db_controller.getPricemaxTime(loaiphong, id_item)
+@app.route("/pricemax-time/<loaiphong>", methods=["GET"])
+def getPricemaxTime(loaiphong):
+    return db_controller.getPricemaxTime(loaiphong)
 
 @app.route("/chi-tiet-san-pham/<id>", methods=["GET"])
 def getDetailItem(id):
@@ -81,6 +82,7 @@ def historyAuction():
 def getNameAccount():
     return account.getNameAccount()
 
+# tim gio cua file category
 @app.route("/getTimeRemaining", methods=["GET"])
 def timeRemaining():
     return t_rom.timeRemaining()
@@ -94,7 +96,7 @@ def test():
     # now = datetime.now()
     # dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     # return app.response_class(json.dumps([{"test": str(dt_string)}]),mimetype='application/json')
-    return render_template('render/bid.html')
+    return render_template('render/account.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -70,7 +70,7 @@ setInterval(function() {
             }
         }
     )
-}, 5000);
+}, 1000);
 
 setInterval(function() {
     fetch("../getItemInRoom/trangsuc")
@@ -99,7 +99,7 @@ setInterval(function() {
             }
         }
     )
-}, 5000);
+}, 1000);
 
 setInterval(function() {
     fetch("../getItemInRoom/doluuniem")
@@ -128,7 +128,7 @@ setInterval(function() {
             }
         }
     )
-}, 5000);
+}, 1000);
 
 setInterval(function() {
     fetch("../getItemInRoom/doco")
@@ -157,4 +157,4 @@ setInterval(function() {
             }
         }
     )
-}, 5000);
+}, 1000);

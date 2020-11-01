@@ -27,28 +27,36 @@ def checkTimeRemaining(typeroom):
     diffTime = differenceTime(time_room[0], now)
     appFlask = app.app
     db = app.db
-    if time_room[1] <=  diffTime[0]*60 + diffTime[1]:
+    if time_room[1] <= diffTime[0]*60 + diffTime[1]:
         try:
             typeroom = typeroom.strip()
             id_item = str(app.primaryItemId[app.indexRoom[typeroom]])
             db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "paid"}})
             x = [x for x in db.item.find({"_id": ObjectId(id_item)}, {"id_bidder": True, "price_max": True}).limit(1)][0]
-            db.bidder.update_one({"_id": ObjectId(x)}, {"$inc": {"accountBalance": - x["price_max"]}})  
+            db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}})  
             duration = 3600 - int(now.strftime("%M"))*60 + int(now.strftime("%S"))
             app.timeRoom[app.indexRoom[typeroom]] = (now, duration)     
         except:
             1
+    diffTime = differenceTime(time_room[0], now)
     timeRemaining = time_room[1] - (diffTime[0]*60 + diffTime[1])
     mins = timeRemaining // 60
     mins = '0' + str(mins) if mins < 10 else str(mins)
     secd = timeRemaining % 60
-    secd = '0' + str(secd) if mins < 10 else str(secd)
-    return mins + ":" + secd
+    secd = '0' + str(secd) if secd < 10 else str(secd)
+    # print(mins + ":" + secd)
+    return (mins + ":" + secd)
 
+
+# dung trong file bid, update clock khi co nguoi dau gia moi
 def updateTimeRemaining(item_category):
     indexCategories = {"Thời trang": 0, "Hội họa": 1, "Trang sức": 2, "Đồ lưu niệm": 3, "Đồ cổ": 4}
-    app.timeRoom[indexCategories[item_category]] = (datetime.now(), 5*60)
-        
+    now = datetime.now()
+    duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
+    app.timeRoom[indexCategories[item_category]] = (now, min(5*60, duration))
+    # //////////////////////////// 5 phut ///////////////////////
+
+# tim gio cua file category
 def timeRemaining():
     appFlask = app.app
     try: 
@@ -74,7 +82,8 @@ def getItemInRoom(loaiphong):
     data = [{"id_item": str(i["_id"]), "image": i["image"]} for i in x]
     data.append({"status": "HAVE"})
     return appFlask.response_class(json.dumps(data), mimetype='application/json')
-        
+           
+
 
 # first = datetime.now()
 # time.sleep(130)

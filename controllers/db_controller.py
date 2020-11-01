@@ -64,26 +64,41 @@ def checkAccount(db, username):
     except:
         return -1
 
+
+# ben B tra gia san pham qua method POST
 def bid():
     appFlask = app.app
     db = app.db
+    # try:
+    id_bidder = session["id"]
+    username = session["username"]
+    # parameter co price va id_item
     try:
-        id_bidder = session["id"]
-        username = session["username"]
         price = request.form['price']
         id_item = request.form['id_item']
-        (max_price_current, item_name, item_category) = [(x["price_max"], x["name"], x["category"]) for x in db.item.find({"_id": ObjectId(id_item)}, {"price_max": True, "name": True, "category": True})][0]
-        if price <= max_price_current:
-            return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
-        accountBalance = [x["accountBalance"] for x in db.bidder.find({"_id": ObjectId(id_bidder)}, {"accountBalance": True})][0]
-        if accountBalance < price:
-            return appFlask.response_class(json.dumps({"result": "Số dư tài khoản không đủ"}),mimetype='application/json')
-        db.item.update({"_id": ObjectId(id_item)}, {"$set": {"price_max": price, "id_bidder": id_bidder}})
-        db.bidder_history.insert({"id_bidder": id_bidder, "status": "auction", "id_item": id_item, "item_name": item_name, "item_category": item_category, "price": price})
-        room.updateTimeRemaining(item_category)
-        return appFlask.response_class(json.dumps({"result": "Thành công"}),mimetype='application/json')
     except:
-        return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
+        price = request.get_json()["price"]
+        id_item = request.get_json()["id_item"]        
+    (max_price_current, item_name, item_category) = [(x["price_max"], x["name"], x["category"]) for x in db.item.find({"_id": ObjectId(id_item)}, {"price_max": True, "name": True, "category": True})][0]
+    
+    # price khi submit nhỏ hơn price_max hien tai => that bai!
+    price = int("".join(str(price).split(",")))
+    if price <= max_price_current:
+        return appFlask.response_class(json.dumps({"result": "Cần đấu giá cao hơn giá cao nhất hiện tại"}),mimetype='application/json')
+    
+    # kiem tra so du tai khoan
+    accountBalance = [x["accountBalance"] for x in db.bidder.find({"_id": ObjectId(id_bidder)}, {"accountBalance": True})][0]
+    if accountBalance < price:
+        return appFlask.response_class(json.dumps({"result": "Số dư tài khoản không đủ"}),mimetype='application/json')
+    
+    # dau gia thuc su
+    db.item.update({"_id": ObjectId(id_item)}, {"$set": {"price_max": price, "id_bidder": id_bidder}})
+    # luu lich su dau gia
+    db.bidder_history.insert({"id_bidder": id_bidder, "status": "auction", "id_item": id_item, "item_name": item_name, "item_category": item_category, "price": price})
+    room.updateTimeRemaining(item_category)
+    return appFlask.response_class(json.dumps({"result": "Thành công"}),mimetype='application/json')
+    # except:
+    #     return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
 
 def getPrimaryItemInRoom(typeroom):
     appFlask = app.app
@@ -149,7 +164,20 @@ def checkToSaveInfo(id):
     except:
         return   
 
-def getPricemaxTime(loaiphong, id_item):
-    id_item = id_item.strip()
+def getPricemaxTime(typeroom):
     appFlask = app.app
-    return appFlask.response_class(json.dumps([{"timeremaning": room.checkTimeRemaining(loaiphong)}]),mimetype='application/json')
+    db = app.db
+    try:    
+        typeroom = typeroom.strip()
+        (currentDate, currentHour) = room.getTime()
+        category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
+        type_room = category[typeroom]
+        x = [x for x in db.item.find({"_id": ObjectId(str(app.primaryItemId[app.indexRoom[typeroom]]))}, {"price_max": True, "id_bidder": True})][0]
+        try:
+            flagTop1Bidder = 1 if x["id_bidder"] == session["id"] else 0
+        except:
+            flagTop1Bidder = 0
+        return appFlask.response_class(json.dumps({"status": "SUC", "timeRemaining": room.checkTimeRemaining(typeroom), "price_max": x["price_max"], "flagTop1Bidder": flagTop1Bidder}),mimetype='application/json')
+    except:
+        return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
+    
