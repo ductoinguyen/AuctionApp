@@ -138,15 +138,14 @@ def nextItem(typeroom):
     try:
         typeroom = typeroom.strip()
         (currentDate, currentHour) = room.getTime()
-        print(currentDate, currentHour)
+        # print(currentDate, currentHour)
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
-        result = db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "name": True, "image": True}).skip(1)
+        result = db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "image": True}).skip(1)
         data = [{"status": "SUC"}]
         for x in result:
             data.append({
                 "id_item": str(x["_id"]),
-                "name": x["name"],
                 "image": x["image"]
             })
         return appFlask.response_class(json.dumps(data),mimetype='application/json')

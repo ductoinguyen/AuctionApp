@@ -42,6 +42,25 @@ setInterval(function() {
                             // document.querySelector("#giaLonNhat").innerHTML = formatMoney(data.price_max)
                             // alert("OK")
                             var id_auctioneer = data.id_auctioneer
+                            fetch("../thong-tin-ben-a/" + id_auctioneer)
+                            .then(
+                                resp => {
+                                    if (resp.status == 200) {
+                                        resp.json()
+                                        .then(
+                                            data => {
+                                                if (data.status == "SUC") {
+                                                    document.querySelector("#tenBenA").innerHTML = data.name
+                                                    document.querySelector("#soDienThoai").innerHTML = data.phoneNumber
+                                                    document.querySelector("#diaChiBenA").innerHTML = data.address                                                    
+                                                } else {
+                                                    
+                                                }                        
+                                            }
+                                        )
+                                    }
+                                }
+                            )
                         } else {
                             location.href = '../cac-phong-dau-gia'
                         }                        
@@ -105,3 +124,31 @@ function eventTraGia() {
         }
     )
 }
+
+setInterval(function() {
+    fetch("../san-pham-tiep-theo/" + loaiphong)
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        if (data[0].status == "SUC") {
+                            var contentHTML = ""
+                            if (data.length == 1) {
+                                contentHTML = "<div style='margin-left: 10px'>Không còn sản phẩm tiếp theo!</div>"
+                            }
+                            for (var i = 1; i < data.length; i++) {
+                                contentHTML += '<a href="/chi-tiet-san-pham/' + data[i].id_item + '"<div class="col-md-3 border border-dark"><img src="' + data[i].image + '" width="100%" height="100%"></div>'
+                            }
+                            document.querySelector("#cacSanPhamTiepTheo").innerHTML = contentHTML
+                        } else {
+                            // alert("Loi")
+                        }
+                        
+                    }
+                )
+            }
+        }
+    )
+}, 5000);
