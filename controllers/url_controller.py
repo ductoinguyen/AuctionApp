@@ -41,3 +41,8 @@ def submitLogin():
 def historyAuction():
     appFlask = app.app
     
+    
+def editAccount():
+    if 'username' not in session or session['type_account'] != "bidder":
+        return redirect('dang-nhap')
+    return render_template('render/account.html')

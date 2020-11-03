@@ -95,6 +95,10 @@ def timeRemaining():
 def getItemInRoom(loaiphong):
     return t_rom.getItemInRoom(loaiphong)
 
+@app.route("/chinh-sua-thong-tin", methods=["GET"])
+def editAccount():
+    return url_controller.editAccount()
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()
