@@ -36,7 +36,7 @@ def submitLogin():
     session['id'] = str(checkLogin[0])
     session['type_account'] = checkLogin[1]
     session['name_account'] = checkLogin[2]
-    return appFlask.response_class(json.dumps({"result": "Thành công"}), mimetype='application/json')
+    return appFlask.response_class(json.dumps({"result": "Thành công", "type_account" : session['type_account']}), mimetype='application/json')
 
 def historyAuction():
     appFlask = app.app

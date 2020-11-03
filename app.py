@@ -99,6 +99,10 @@ def getItemInRoom(loaiphong):
 def editAccount():
     return url_controller.editAccount()
 
+@app.route("/ben-a", methods=["GET"])
+def benA():
+    return render_template('render/account_a.html')
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()

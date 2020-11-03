@@ -19,7 +19,11 @@ function submitLogin() {
                     data => {
                         if (data.result == "Thành công") {
                             // alert("...")
-                            location.href = '/';
+                            if (data.type_account == "auctioneer") {
+                                location.href = '/ben-a';
+                            } else {
+                                location.href = '/';
+                            }
                         } else {
                             alert(data.result)
                         }
