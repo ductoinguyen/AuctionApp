@@ -32,10 +32,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar4">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="../" style="color: black;">Trang chủ</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="../cac-phong-dau-gia" style="color: black;">Phòng đấu giá</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="../lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
-            </ul> <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+                <li class="nav-item"> <a class="nav-link" href="/" style="color: black;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="cac-phong-dau-gia" style="color: black;">Phòng đấu giá</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
+                <li class="account-menu">
+                    <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+                    <div class="dropdownMenu">
+                        <a class="nav-link menu-item edit-account" href="" style="text-align: center; color: black;" >Chỉnh sửa thông tin</a>
+                        <a class="nav-link menu-item logout" href="dang-xuat" style="text-align: center; color: black;"> Đăng xuất</a>
+                    </div>
+                </li>
+            </ul> 
         </div>
         </div>
     </nav>
@@ -43,7 +50,7 @@
         <div class="pt-3 room-name">
         <div class="container">
             <div class="row">
-            <div class="col-md-12" style="margin-bottom:-10px">
+            <div class="col-md-12 pl-0" style="margin-bottom:-10px;">
                 <h2><b id="tenPhong"></b></h2>
             </div>
             </div>
@@ -61,7 +68,7 @@
                 <div class="row">
                     <div class="col-md-12">
                     <div class="row mt-3">
-                        <div class="col-md-12 pl-3 pr-5">
+                        <div class="col-md-12 pl-3 pr-5 mb-2">
                         <form class="form mt-1">
                             <div class="input-group">
                             <input type="text" class="form-control border-dark" placeholder="Ví dụ: 123,456,789">
@@ -123,12 +130,12 @@
             </div>
         </div>
         </div>
-        <hr style="width: 1140px; border-top: 2px solid #dee2e6;">
+        <hr style="width: 1110px; border-top: 2px solid #dee2e6;">
         <div class="container px-0">
         <div class="row">
             <article class="col-md-6 bg-light">
             <h2 class="description pt-2" style=""><b>Mô tả sản phẩm</b></h2>
-            <div class="content-item" style="text-align: justify; height: 300px; overflow-y: scroll;padding-right:10px" id="noiDungSanPham">
+            <div class="content-item" style="text-align: justify; height: 300px; overflow-y: scroll; padding-right: 10px;" id="noiDungSanPham">
                 <div>
                 <p><b>Trang phục Ai Cập</b> cổ đại chỉ đến những trang phục từ thời Đồ đá mới (trước 3100 TCN) đến cuối thời kỳ cai trị của nhà Ptolemaios (năm 30 TCN) trong lịch sử Ai Cập cổ đại. Những bộ trang phục này rất đa dạng màu sắc, thường được tô điểm bởi những món đồ trang sức quý giá. Chúng không chỉ đẹp mà còn rất thoải mái và mát mẻ, được thiết kế cho phù hợp với khí hậu khô cằn của sa mạc.</p>
                 <p>Không gian sáng tạo đầy duy mĩ của văn phòng kiến trúc VUUV là một biến thể từ ngôn ngữ đan lát tre nứa truyền thống, đem lại một luồng gió mới cho nghệ thuật thủ công Việt Nam, vận dụng vào bố cục không gian nhằm tạo ra bầu không khí kiến trúc dung chứa con người.</p>
@@ -157,7 +164,7 @@
             </div>
             </div>
         </div>
-        <hr style="width: 1140px; border-top: 2px solid #dee2e6;">
+        <hr style="width: 1110px; border-top: 2px solid #dee2e6;">
         <div class="row mt-3">
             <div class="col-md-12">
             <h4 class="upcoming-item pt-2"><b>Sản phẩm đấu giá tiếp theo</b></h4>

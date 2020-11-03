@@ -12,6 +12,7 @@
         body {
             color: black;
             font-weight: 5;
+            z-index: 1 !important;
         }
         
         a:hover {
@@ -19,28 +20,30 @@
             text-decoration: none;
         }
 
-        .dropdown-menu {
-            //display: none;
-            position: relative;
-            left: auto;
-            right: 6%;
-            margin: 0;
+        .dropdownMenu {
+            display: none;
+            position: absolute;
+            z-index: 99999999;
+            background-color: white;
             padding: 10px 10px;
-            max-width: 210px;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
         }
     
-        .dropdown-menu a:hover {
-            background-color: #dee2e3;
+        .dropdownMenu a:hover {
+            background-color: #dee2e6;
         }
         
-        .account-menu:hover .dropdown-menu {
+        .account-menu:hover .dropdownMenu {
             display: block;
         }
     </style>
     <script> /*
         $(document).ready(function(){
         $(".account-btn").click(function(){
-            $(".dropdown-menu").slideToggle();
+            $(".dropdownMenu").slideToggle();
         });
         });
         */
@@ -63,9 +66,9 @@
                 <li class="nav-item"> <a class="nav-link" href="lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
                 <li class="account-menu">
                     <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
-                    <div class="nav-link dropdown-menu container">
+                    <div class="dropdownMenu">
                         <a class="nav-link menu-item edit-account" href="" style="text-align: center; color: black;" >Chỉnh sửa thông tin</a>
-                        <a class="nav-link menu-item logout" href="" style="text-align: center; color: black;"> Đăng xuất</a>
+                        <a class="nav-link menu-item logout" href="dang-xuat" style="text-align: center; color: black;"> Đăng xuất</a>
                     </div>
                 </li>
             </ul> 

@@ -1,66 +1,30 @@
-* {
-    /* margin: 0;
-    padding: 0;
-    box-sizing: border-box; */
-    /* font-family: 'Roboto', sans-serif; */
-
-    /* font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; */
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    font-size: 20;
-    font-size: 19px;
-    line-height: 1.4211;
-    font-weight: 300;
-    letter-spacing: .012em;
-    color: #1d1d1f;
-    font-style: normal;
+body {
+    color: black;
+    font-weight: 5;
+    z-index: 1 !important;
 }
 
-#background-log {
-    background-image: url("https://i.pinimg.com/originals/3c/0c/be/3c0cbed15c205ec9fbd63ef0ef2efcaf.jpg");
-    background-color: #cccccc;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.title-h2 {
-    color: #2b86c5;
-    padding-bottom: 15px;
-}
-
-.section-news {
-    padding-left: 75px;
-    padding-right: 75px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.image {
-    width: 100%;
-    /* border-radius: 10px; */
-    transition: all 0.2s;
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-.cell {
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 100%;
-}
-
-.image:hover,
-.image:active {
+a:hover {
     cursor: pointer;
-    opacity: 0.9;
-    filter: drop-shadow(8px 8px 10px gray);
+    text-decoration: none;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    z-index: 99999999;
+    background-color: white;
+    padding: 10px 10px;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+
+.dropdownMenu a:hover {
+    background-color: #dee2e6;
+}
+
+.account-menu:hover .dropdownMenu {
+    display: block;
 }

@@ -66,9 +66,9 @@ def getDetailItem(id):
     db_controller.checkToSaveInfo(id)
     return render_template('render/detail_item.html')
 
-@app.route("/thong-tin-san-pham", methods=["GET"])
-def getInfoItem():
-    return db_controller.getInfoItem(session["id_item"])
+@app.route("/thong-tin-san-pham/<id>", methods=["GET"])
+def getInfoItem(id):
+    return db_controller.getInfoItem(id)
 
 @app.route("/thong-tin-ben-a/<id>", methods=["GET"])
 def getInfoAuctioneer(id):

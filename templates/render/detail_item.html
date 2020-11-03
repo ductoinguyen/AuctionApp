@@ -1,11 +1,166 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
+    <link rel="stylesheet" href="../static/style/theme.css" type="text/css">
+    <link rel="shortcut icon" href="../static/image/icon.png"/>
+    <style> 
+        body {
+            color: black;
+            font-weight: 5;
+        }
+        
+        a:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
+        <div class="container">
+        <a class="navbar-brand text-primary" href="">
+            <img src="../static/image/icon.png" style="width: 50px;">
+            <b style="color: black; padding-left: 15px;">T - Auction</b>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"> <a class="nav-link" href="/" style="color: black;">Trang chủ</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="cac-phong-dau-gia" style="color: black;">Phòng đấu giá</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="lich-su-dau-gia" style="color: black;">Lịch sử giao dịch</a> </li>
+                <li class="account-menu">
+                    <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount"></a>
+                    <div class="dropdownMenu">
+                        <a class="nav-link menu-item edit-account" href="" style="text-align: center; color: black;" >Chỉnh sửa thông tin</a>
+                        <a class="nav-link menu-item logout" href="dang-xuat" style="text-align: center; color: black;"> Đăng xuất</a>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+        </div>
+    </nav>
+    <div class="main container">
+        <div class="pt-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 pl-0">
+                        <h2><b>Thông tin sản phẩm</b></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 px-0">
+                    <img id="anhSanPham" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" width="100%" class="border-dark border" style="margin-top: 34px;">
+                </div>
+                <div class="col-md-7">
+                    <h1 class="item-name text-uppercase mt-3" style="margin-left: 10px;" ><b id="tenSanPham">Bông tai đính đá</b></h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h4 class="pl-2" id="tenPhong"> Phòng Trang sức </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                <h4 class="mt-2 text-left pl-2">Giá khởi điểm:</h4>
+                                </div>
+                                <div class="col-md-5">
+                                <h1 class="text-left" id="giaKhoiDiem">255,999,999</h1>
+                                </div>
+                                <div class="col-md-3">
+                                <h1 class="text-left">VNĐ</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 100%">
+                        <article class="col-md-12 bg-light" style="margin: 0 15px;">
+                            <h2 class="description pt-2"><b>Mô tả sản phẩm</b></h2>
+                            <div class="content-item" style="text-align: justify; height: 300px; overflow-y: scroll; padding-right: 10px;" id="noiDungSanPham">
+                                <div>
+                                <p><b>Trang phục Ai Cập</b> cổ đại chỉ đến những trang phục từ thời Đồ đá mới (trước 3100 TCN) đến cuối thời kỳ cai trị của nhà Ptolemaios (năm 30 TCN) trong lịch sử Ai Cập cổ đại. Những bộ trang phục này rất đa dạng màu sắc, thường được tô điểm bởi những món đồ trang sức quý giá. Chúng không chỉ đẹp mà còn rất thoải mái và mát mẻ, được thiết kế cho phù hợp với khí hậu khô cằn của sa mạc.</p>
+                                <p>Không gian sáng tạo đầy duy mĩ của văn phòng kiến trúc VUUV là một biến thể từ ngôn ngữ đan lát tre nứa truyền thống, đem lại một luồng gió mới cho nghệ thuật thủ công Việt Nam, vận dụng vào bố cục không gian nhằm tạo ra bầu không khí kiến trúc dung chứa con người.</p>
+                                <p>Qua những đường nét, mảng khối, lõm hằn, co kéo, phần nào hành trình tạo nên một một thành trì chắc chắn, kiêu kỳ của một con tằm được tái hiện lại. Quá trình cắn kén, chui ra, hoá bướm bay cao, bay xa với những bộ xiêm y lộng lẫy nhất cũng được thuật lại thông qua những chiếc kén bung đầu. Không chỉ đại diện cho quá trình biến đổi vượt bậc, nâng tầm bản thân cả về chất và lượng, những con tằm còn gắn liền với quá trình làm tơ dệt lụa. </p>
+                                <p>Sự chảy trôi của các trào lưu cùng nhu cầu hội nhập quốc tế, tinh thần hướng mình ra thế giới đã đòi hỏi phải đơn giản hơn, bớt cầu kỳ hơn, có tính ứng dụng cao hơn và tập trung vào kinh tế hơn.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width: 1110px; border-top: 2px solid #dee2e6;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-7" style="padding-bottom: 40px;">
+                    <div class="row">
+                        <div class="col-md-12" style="margin: 0 15px;">
+                            <h2 class="seller-info pt-2"><b>Thông tin người bán</b></h2>
+                            <div class="row my-1 seller-name">
+                                <div class="col-md-3"> Tên người bán: </div>
+                                <div class="col-md-9" id="tenBenA"> Nguyễn Văn A </div>
+                            </div>
+                            <div class="row my-1 seller-tel">
+                                <div class="col-md-3"> Liên hệ: </div>
+                                <div class="col-md-9" id="soDienThoai"> 0987 654 321 </div>
+                            </div>
+                            <div class="row my-1 seller-address">
+                                <div class="col-md-3"> Địa chỉ: </div>
+                                <div class="col-md-9" id="diaChiBenA"> Lê Văn Lương, Thanh Xuân, Hà Nội </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" style=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" style=""></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+                    <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                        <li class="nav-item"> <a class="nav-link active" href="/" style="color: white;">Trang chủ</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                        <li class="nav-item app-map"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" target="_blank" style="color: white;">Bản đồ</a> </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                        <a>
+                            <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                        </a>
+                        <a>
+                            <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                        </a>
+                        <a>
+                            <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                        </a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                <p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../static/script/common.js"></script>
+    <script src="../static/script/detail_item.js"></script>
 </body>
+
 </html>

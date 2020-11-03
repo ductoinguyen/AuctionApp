@@ -148,7 +148,7 @@ def nextItem(typeroom):
         # print(currentDate, currentHour)
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
-        result = db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "image": True}).skip(1)
+        result = db.item.find({"open_bid": currentDate, "status": "ready to auction", "category": type_room, "index_session": currentHour}, {"_id": True, "image": True}).skip(1).limit(3)
         data = [{"status": "SUC"}]
         for x in result:
             data.append({
@@ -168,7 +168,7 @@ def checkToSaveInfo(id):
             (max_price_current, item_name, item_category) = [(x["price_max"], x["name"], x["category"]) for x in db.item.find({"_id": ObjectId(id)}, {"price_max": True, "name": True, "category": True})][0]
             db.bidder_history.insert({"id_bidder": str(session["id"]), "status": "readinfo", "id_item": id, "item_name": item_name, "item_category": item_category, "price": max_price_current})
     except:
-        return   
+        return
 
 def getPricemaxTime(typeroom):
     appFlask = app.app
