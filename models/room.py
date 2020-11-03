@@ -31,9 +31,12 @@ def checkTimeRemaining(typeroom):
         try:
             typeroom = typeroom.strip()
             id_item = str(app.primaryItemId[app.indexRoom[typeroom]])
-            db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "paid"}})
-            x = [x for x in db.item.find({"_id": ObjectId(id_item)}, {"id_bidder": True, "price_max": True}).limit(1)][0]
-            db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}})  
+            try:
+                x = [x for x in db.item.find({"_id": ObjectId(id_item)}, {"id_bidder": True, "price_max": True}).limit(1)][0]
+                db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}}) 
+                db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "paid"}})
+            except:
+                db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "fail-auction"}})
             duration = 3600 - int(now.strftime("%M"))*60 + int(now.strftime("%S"))
             app.timeRoom[app.indexRoom[typeroom]] = (now, duration)     
         except:
