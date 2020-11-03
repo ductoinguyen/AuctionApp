@@ -49,6 +49,10 @@ def signup():
 def bid():
     return db_controller.bid()
 
+@app.route("/so-du", methods=["GET"])
+def getAccountBalance():
+    return db_controller.getAccountBalance()
+
 @app.route("/san-pham-chinh/<loaiphong>", methods=["GET"])
 def getItem(loaiphong):
     return db_controller.getPrimaryItemInRoom(loaiphong)

@@ -100,6 +100,13 @@ def bid():
     # except:
     #     return appFlask.response_class(json.dumps({"result": "Thất bại"}),mimetype='application/json')
 
+def getAccountBalance():
+    appFlask = app.app
+    db = app.db
+    id_bidder = session["id"]
+    accountBalance = [x["accountBalance"] for x in db.bidder.find({"_id": ObjectId(id_bidder)}, {"accountBalance": True})][0]
+    return appFlask.response_class(json.dumps({"status": "SUC", "accountBalance": accountBalance}),mimetype='application/json')
+
 def getPrimaryItemInRoom(typeroom):
     appFlask = app.app
     db = app.db

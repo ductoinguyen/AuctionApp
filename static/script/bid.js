@@ -10,17 +10,17 @@ var tenCacPhong = {
 
 function formatMoney(amount, decimalCount = 0, decimal = ".", thousands = ",") {
     try {
-      decimalCount = Math.abs(decimalCount);
-      decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
-  
-      const negativeSign = amount < 0 ? "-" : "";
-  
-      let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
-      let j = (i.length > 3) ? i.length % 3 : 0;
-  
-      return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+        decimalCount = Math.abs(decimalCount);
+        decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+    
+        const negativeSign = amount < 0 ? "-" : "";
+    
+        let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+        let j = (i.length > 3) ? i.length % 3 : 0;
+    
+        return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
     } catch (e) {
-      console.log(e)
+        console.log(e)
     }
 };
 
@@ -92,7 +92,6 @@ setInterval(function() {
                         } else {
                             // alert("Loi")
                         }
-                        
                     }
                 )
             }
@@ -139,7 +138,7 @@ setInterval(function() {
                                 contentHTML = "<div style='margin-left: 10px'>Không còn sản phẩm tiếp theo!</div>"
                             }
                             for (var i = 1; i < data.length; i++) {
-                                contentHTML += '<a href="/chi-tiet-san-pham/' + data[i].id_item + '"<div class="col-md-3 border border-dark"><img src="' + data[i].image + '" width="100%" height="100%"></div>'
+                                contentHTML += '<a class="col-md-3" href="/chi-tiet-san-pham/' + data[i].id_item + '"><img src="' + data[i].image + '" width="100%" height="100%"></a>'
                             }
                             document.querySelector("#cacSanPhamTiepTheo").innerHTML = contentHTML
                         } else {
@@ -152,3 +151,23 @@ setInterval(function() {
         }
     )
 }, 5000);
+
+setInterval(function() {
+    fetch("../so-du")
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        if (data.status == "SUC") {
+                            document.querySelector("#soDu").innerHTML = formatMoney(data.accountBalance)
+                        } else {
+
+                        }
+                    }
+                )
+            }
+        }
+    )
+}, 1000);
