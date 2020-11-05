@@ -30,5 +30,6 @@ def setInfoBidder():
         birthday = request.get_json()['birthday']
         phoneNumber = request.get_json()['phoneNumber']     
     db.bidder.update({"_id": ObjectId(id_bidder)}, {"$set": {"name": nameAccount, "address": address, "birthday": birthday, "phoneNumber": phoneNumber}})
+    session["name_account"] = nameAccount
     return appFlask.response_class(json.dumps({"result": "success"}), mimetype='application/json')   
     
