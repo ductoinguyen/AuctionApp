@@ -111,6 +111,10 @@ def getInfoBidder():
 def setInfoBidder():
     return account.setInfoBidder()
 
+@app.route("/getAllHistoryAuction", methods=["GET"])
+def getAllHistoryAuction():
+    return account.getAllHistoryAuction()
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()
