@@ -88,7 +88,7 @@ def checkTimeRemainingDB(typeroom):
 def updateTimeRemainingDB(item_category, typeroom):
     indexCategories = {"Thời trang": 0, "Hội họa": 1, "Trang sức": 2, "Đồ lưu niệm": 3, "Đồ cổ": 4}
     now = datetime.now()
-    duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
+    duration = min(5*60, 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S"))))
     app.db.time_room.update({"name": typeroom}, {"$set": {"start": now.strftime("%d/%m/%Y %H:%M:%S"), "duration": duration}})
     # app.timeRoom[indexCategories[item_category]] = (now, min(5*60, duration))
 
