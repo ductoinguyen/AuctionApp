@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sàn đấu giá online T - Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" type="text/css">
+    <link rel="stylesheet" href="../static/style/theme.css" type="text/css">
+    <link rel="stylesheet" href="../static/style/style.css" type="text/css">
+    <link rel="shortcut icon" href="../static/image/icon.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style> 
+        #nameAccount {
+            background-color: white;
+        }
+        
+        .fa-caret-down{
+            transform: rotate(0deg);
+            transition: transform 0.2s linear;
+        }
+
+        .fa-caret-down.open{
+            transform: rotate(180deg);
+            transition: transform 0.2s linear;
+        }
+    </style>
+    <script>
+        (function(document) {
+            var div = document.getElementById('previewBtn');
+            var icon = document.getElementById('showMore');
+            var open = false;
+            div.addEventListener('click', function() {
+                if (open) {
+                    icon.className = 'fa fa-caret-down';
+                } else {
+                    icon.className = 'fa fa-caret-down open';
+                }
+                open = !open;
+            });
+        })(document);
+
+        $(document).ready(function() {
+            $("#previewBtn").click(function() {
+                $("#imgPreview").slideToggle();
+            });
+
+            $("#imgPreview").hover(function() {
+                $("#content-item").slideToggle(100);
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="">
+                <img src="../static/image/icon.png" style="width: 50px;">
+                <b style="color: black; padding-left: 15px;">T - Auction</b>
+            </a>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar4">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Trang chủ</a> </li>
+                    <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
+                    <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
+                    <li class="account-menu">
+                        <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount">Vũ Thành Trung</a>
+                        <a class="btn navbar-btn ml-md-2 btn-light account-btn" href="/dang-xuat" style="color: black;">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main container" style="min-height: 700px;">
+        <div class="p-2" id="content-item" style="position: absolute; display: none; width: 650px; top: 184px; right: 738; background-color: white; z-index: 9999; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);">
+            <div>
+                <p><b>Trang phục Ai Cập</b> cổ đại chỉ đến những trang phục từ thời Đồ đá mới (trước 3100 TCN) đến cuối thời kỳ cai trị của nhà Ptolemaios (năm 30 TCN) trong lịch sử Ai Cập cổ đại. Những bộ trang phục này rất đa dạng màu sắc, thường được tô điểm bởi những món đồ trang sức quý giá. Chúng không chỉ đẹp mà còn rất thoải mái và mát mẻ, được thiết kế cho phù hợp với khí hậu khô cằn của sa mạc.</p>
+                <p>Không gian sáng tạo đầy duy mĩ của văn phòng kiến trúc VUUV là một biến thể từ ngôn ngữ đan lát tre nứa truyền thống, đem lại một luồng gió mới cho nghệ thuật thủ công Việt Nam, vận dụng vào bố cục không gian nhằm tạo ra bầu không khí kiến trúc dung chứa con người.</p>
+                <p>Qua những đường nét, mảng khối, lõm hằn, co kéo, phần nào hành trình tạo nên một một thành trì chắc chắn, kiêu kỳ của một con tằm được tái hiện lại. Quá trình cắn kén, chui ra, hoá bướm bay cao, bay xa với những bộ xiêm y lộng lẫy nhất cũng được thuật lại thông qua những chiếc kén bung đầu. Không chỉ đại diện cho quá trình biến đổi vượt bậc, nâng tầm bản thân cả về chất và lượng, những con tằm còn gắn liền với quá trình làm tơ dệt lụa. </p>
+                <p>Sự chảy trôi của các trào lưu cùng nhu cầu hội nhập quốc tế, tinh thần hướng mình ra thế giới đã đòi hỏi phải đơn giản hơn, bớt cầu kỳ hơn, có tính ứng dụng cao hơn và tập trung vào kinh tế hơn.</p>
+            </div>
+        </div>
+        <div class="row">
+            <section class="col-md-7 account-section px-0">
+                <div class="col-md-12 pl-0 py-4 pr-4">
+                    <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
+                        <div class="col-md-12" style="padding: 0 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem;">
+                            <h3 class="" style="padding-top: 15px;"> Xóa tài khoản </h3>
+                            <div class="row" style="padding: 0 15px;">
+                                <div class="form-group" style="width: 85%; padding-right: 7.5px">
+                                    <input class="form-control" type="text" placeholder="Username" required="">
+                                </div>
+                                <a class="btn btn-primary" href="" style="height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 1rem; font-size: 1rem; font-weight: 200; line-height: 1.5; margin-left: 5px; width: 14%">Xóa</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; padding: 15px;">
+                            <div class="row" style="padding: 0 15px;">
+                                <div class="col-md-4" style="padding-left: 0; padding-right: 7.5px">
+                                    <input class="form-control" type="date" required="required">
+                                </div>
+                                <div class="col-md-4" style="padding: 0 7.5px;">
+                                    <select class="form-control" id="hour" required="required">
+                                        <option value="">Chọn phiên</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" style="padding-right: 0; padding-left: 7.5px;">
+                                    <select class="form-control" id="category" required="required">
+                                        <option value="">Chọn loại phòng</option>
+                                        <option value="trangsuc">Trang sức</option>
+                                        <option value="doco">Đồ cổ</option>
+                                        <option value="hoihoa">Hội họa</option>
+                                        <option value="thoitrang">Thời trang</option>
+                                        <option value="doluuniem">Đồ lưu niệm</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; height: 400px; background-color: #dee2e6; padding: 15px; overflow-y: scroll;">
+                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-7 pl-0">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6 id="searchName"> Bông tai đính đá </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <h6> Loại: </h6>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h6 id="searchCategory"> Trang sức </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3 pr-0">
+                                                            <h6> Giá mở: </h6>
+                                                        </div>
+                                                        <div class="col-md-4 px-0 text-right">
+                                                            <h6 id="searchOpenPrice"> 799,999,000 </h6>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <h6> VNĐ </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4 pr-0">
+                                                            <h6> Người bán: </h6>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h6 id="searchAuctioneer"> Nguyễn Văn A </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6><b><em id="bidStatus"> Chưa đấu giá </em></b></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 p-0" style="border: 1px solid rgba(0, 0, 0, 0.15);">
+                                                    <img id="searchItemImg" style="width: 100%;" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-7 pl-0">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6 id="searchName"> Bông tai đính đá </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <h6> Loại: </h6>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h6 id="searchCategory"> Trang sức </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3 pr-0">
+                                                            <h6> Giá mở: </h6>
+                                                        </div>
+                                                        <div class="col-md-4 px-0 text-right">
+                                                            <h6 id="searchOpenPrice"> 799,999,000 </h6>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <h6> VNĐ </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4 pr-0">
+                                                            <h6> Người bán: </h6>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h6 id="searchAuctioneer"> Nguyễn Văn A </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <h6><b><em id="bidStatus"> Đã đấu giá: </em></b></h6>
+                                                        </div>
+                                                        <div class="col-md-7 px-0">
+                                                            <h6 id="bidDate"> 3/1/2020 </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <h6><b><em id="paidStatus"> Không được mua </em></b></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 p-0" style="border: 1px solid rgba(0, 0, 0, 0.15);">
+                                                    <img id="searchItemImg" style="width: 100%;" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-7 pl-0">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h6 id="searchName"> Bông tai đính đá </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <h6> Loại: </h6>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h6 id="searchCategory"> Trang sức </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3 pr-0">
+                                                            <h6> Giá mở: </h6>
+                                                        </div>
+                                                        <div class="col-md-4 px-0 text-right">
+                                                            <h6 id="searchOpenPrice"> 799,999,000 </h6>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <h6> VNĐ </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4 pr-0">
+                                                            <h6> Người bán: </h6>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h6 id="searchAuctioneer"> Nguyễn Văn A </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <h6><b><em id="bidStatus"> Đã đấu giá: </em></b></h6>
+                                                        </div>
+                                                        <div class="col-md-7 px-0">
+                                                            <h6 id="bidDate"> 4/1/2020 </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <h6><b><em id="paidStatus"> Người mua: </em></b></h6>
+                                                        </div>
+                                                        <div class="col-md-7 px-0">
+                                                            <h6 id="bidder"> Trần Văn B </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <h6 class="mb-0"><b><em id="bidPaid"> Giá mua: </em></b></h6>
+                                                        </div>
+                                                        <div class="col-md-8 px-0">
+                                                            <h6 class="mb-0" id="bidPaidPrice"> 800,000,000 </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 p-0" style="border: 1px solid rgba(0, 0, 0, 0.15);">
+                                                    <img id="searchItemImg" style="width: 100%;" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Next item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="col-md-5 request-section py-4 px-0" style="">
+                <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
+                    <h3> Duyệt yêu cầu </h3>
+                    <div class="main row" style="padding: 0 15px;">
+                        <div class="col-md-12" style="background-color: #dee2e6; overflow-y: scroll;  border-radius: 0.25rem; height: 571px;">
+                            <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-11 p-0">
+                                            <h5 class="mb-0 pb-0" style="padding: 15px" id="tenSanPham"> Bông tai đính đá </h5>
+                                        </div>
+                                        <div class="col-md-1 p-0" id="previewBtn" style="text-align: center; margin-top: 10px; ">
+                                            <i id="showMore" class="fa fa-caret-down" style="width: 20px"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 p-0">
+                                            <h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>
+                                        </div>
+                                        <div class="col-md-4 p-0">
+                                            <h5 class="mb-0 pb-0" style="padding: 15px 0; padding-right: 15px;" id="giaKhoiDiem">799,999,000</h5>
+                                        </div>
+                                        <div class="col-md-3 p-0">
+                                            <h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="p-0">
+                                            <h5 class="mb-0" style="padding: 15px">Loại:</h5>
+                                        </div>
+                                        <div class="p-0">
+                                            <h5 class="mb-0 pl-0" id="tenPhong" style="padding: 15px; width: 118px;">Trang sức</h5>
+                                        </div>
+                                        <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-success border-0" href="#">Chấp nhận</a></div>
+                                        <div class="" style="padding: 7.5px; "><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" id="imgPreview" style="padding-bottom: 15px; display: none;">
+                                    <img id="anhSanPham" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width: 100%; position: relative;">
+                                </div>
+                            </div>
+                            <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
+                                <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px" id="tenSanPham"> Trang phục Ai Cập </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>
+                                    </div>
+                                    <div class="col-md-4 p-0">
+                                    <h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;" id="giaKhoiDiem">1,299,999,000</h5>
+                                    </div>
+                                    <div class="col-md-3 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="p-0">
+                                    <h5 class="mb-0" style="padding: 15px">Loại:</h5>
+                                    </div>
+                                    <div class="p-0">
+                                    <h5 class="mb-0 pl-0" id="tenPhong" style="padding: 15px; width: 118px;">Thời trang</h5>
+                                    </div>
+                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-success border-0" href="#">Chấp nhận</a></div>
+                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
+                                <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px" id="tenSanPham"> Tranh Monalisa </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>
+                                    </div>
+                                    <div class="col-md-4 p-0">
+                                    <h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px" id="giaKhoiDiem">10,599,999,000</h5>
+                                    </div>
+                                    <div class="col-md-3 p-0">
+                                    <h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="p-0">
+                                    <h5 class="mb-0" style="padding: 15px">Loại:</h5>
+                                    </div>
+                                    <div class="p-0">
+                                    <h5 class="mb-0 pl-0" id="tenPhong" style="padding: 15px; width: 118px;">Hội họa</h5>
+                                    </div>
+                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-success border-0" href="#">Chấp nhận</a></div>
+                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- Next request -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="py-3 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center d-md-flex align-items-center" style="">
+                    <ul class="nav d-flex justify-content-center" style="margin-left: 425px; margin-right: 300px;">
+                        <li class="nav-item"> <a class="nav-link active" href="" style="color: white;">Trang chủ</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="" style="color: white;">Liên hệ</a> </li>
+                        <li class="nav-item app-map"> <a class="nav-link" href="https://goo.gl/maps/ZnWSTXHsRVEKNqzWA" target="_blank" style="color: white;">Bản đồ</a> </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-center justify-content-md-between justify-content-center my-2">
+                        <a>
+                            <i class="d-block fa fa-facebook-official text-muted fa-lg mx-2"></i>
+                        </a>
+                        <a>
+                            <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                        </a>
+                        <a>
+                            <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                        </a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mt-2 mb-0"><b>© 2020-2021 T - Auction. All rights reserved</b></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

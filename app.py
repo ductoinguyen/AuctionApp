@@ -115,6 +115,10 @@ def setInfoBidder():
 def getAllHistoryAuction():
     return account.getAllHistoryAuction()
 
+@app.route("/ben-c", methods=["GET"])
+def benC():
+    return render_template('render/account_c.html')
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()

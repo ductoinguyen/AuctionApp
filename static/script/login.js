@@ -21,6 +21,8 @@ function submitLogin() {
                             // alert("...")
                             if (data.type_account == "auctioneer") {
                                 location.href = '/ben-a';
+                            } else if (data.type_account == "admin") {
+                                location.href = '/ben-c';
                             } else {
                                 location.href = '/';
                             }
