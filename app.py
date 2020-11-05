@@ -11,7 +11,7 @@ STATIC_DIR = os.path.abspath('./static')
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 db = db_controller.getDB()
-timeRoom = t_rom.initTimeRoom()
+# timeRoom = t_rom.initTimeRoom()
 indexRoom = t_rom.createIndexRoom()
 primaryItemId = ["" for _ in range(5)]
 
@@ -49,6 +49,10 @@ def signup():
 def bid():
     return db_controller.bid()
 
+@app.route("/tra-gia-db/<typeroom>", methods=["POST"])
+def biddb(typeroom):
+    return t_rom.bid(typeroom)
+
 @app.route("/so-du", methods=["GET"])
 def getAccountBalance():
     return db_controller.getAccountBalance()
@@ -56,6 +60,14 @@ def getAccountBalance():
 @app.route("/san-pham-chinh/<loaiphong>", methods=["GET"])
 def getItem(loaiphong):
     return db_controller.getPrimaryItemInRoom(loaiphong)
+
+@app.route("/createRoom/<loaiphong>", methods=["GET"])
+def createRoom(loaiphong):
+    return t_rom.createRoom(loaiphong)
+
+@app.route("/pricemax-time-db/<loaiphong>", methods=["GET"])
+def getPricemaxTimedb(loaiphong):
+    return t_rom.getPricemaxTimedb(loaiphong)
 
 @app.route("/pricemax-time/<loaiphong>", methods=["GET"])
 def getPricemaxTime(loaiphong):

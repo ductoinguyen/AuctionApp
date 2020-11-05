@@ -186,4 +186,3 @@ def getPricemaxTime(typeroom):
         return appFlask.response_class(json.dumps({"status": "SUC", "timeRemaining": room.checkTimeRemaining(typeroom), "price_max": x["price_max"], "flagTop1Bidder": flagTop1Bidder}),mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps({"status": "ERR"}),mimetype='application/json')
-    

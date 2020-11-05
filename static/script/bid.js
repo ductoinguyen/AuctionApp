@@ -1,4 +1,22 @@
 var loaiphong = location.pathname.split("/")[2]
+fetch("../createRoom/" + loaiphong)
+.then(
+    resp => {
+        if (resp.status == 200) {
+            resp.json()
+            .then(
+                data => {
+                    if (data.result != "ok") {
+                        alert("Hệ thống đang bận, vui lòng thử lại sau!")
+                        location.href = '../';
+                    } else {
+                        // alert("Loi")
+                    }
+                }
+            )
+        }
+    }
+)
 var id_item = ""
 var tenCacPhong = {
     "trangsuc": "Phòng Trang sức",
@@ -72,7 +90,7 @@ setInterval(function() {
 }, 3000);
 
 setInterval(function() {
-    fetch("../pricemax-time/" + loaiphong)
+    fetch("../pricemax-time-db/" + loaiphong)
     .then(
         resp => {
             if (resp.status == 200) {
@@ -99,9 +117,39 @@ setInterval(function() {
     )
 }, 1000);
 
+
+// setInterval(function() {
+//     fetch("../pricemax-time/" + loaiphong)
+//     .then(
+//         resp => {
+//             if (resp.status == 200) {
+//                 resp.json()
+//                 .then(
+//                     data => {
+//                         if (data.status == "SUC") {
+//                             document.querySelector("#timeRemaining").innerHTML = data.timeRemaining
+//                             document.querySelector("#giaLonNhat").innerHTML = formatMoney(data.price_max)
+//                             if (data.flagTop1Bidder == 1) {
+//                                 document.querySelector("#thongBao").style.display = "block"
+//                             } else {
+//                                 document.querySelector("#thongBao").style.display = "none"
+//                             }
+                            
+//                             // alert(data.timeRemaining + " " + data.price_max)
+//                         } else {
+//                             // alert("Loi")
+//                         }
+//                     }
+//                 )
+//             }
+//         }
+//     )
+// }, 1000);
+
 function eventTraGia() {
     price = document.querySelector("input").value
-    fetch("../tra-gia", {
+    // fetch("../tra-gia", {
+    fetch("../tra-gia-db/" + loaiphong, {
         method: "POST",
         credentials: "include",
         body: JSON.stringify({price: price, id_item: id_item}),
