@@ -103,12 +103,20 @@ def editAccount():
 def benA():
     return render_template('render/account_a.html')
 
+@app.route("/getInfoBidder", methods=["GET"])
+def getInfoBidder():
+    return account.getInfoBidder()
+
+@app.route("/setInfoBidder", methods=["POST"])
+def setInfoBidder():
+    return account.setInfoBidder()
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()
     # dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     # return app.response_class(json.dumps([{"test": str(dt_string)}]),mimetype='application/json')
-    return render_template('render/account.html')
+    return render_template('render/account_a.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
