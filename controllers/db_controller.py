@@ -175,7 +175,7 @@ def getPricemaxTime(typeroom):
     db = app.db
     try:    
         typeroom = typeroom.strip()
-        (currentDate, currentHour) = room.getTime()
+        # (currentDate, currentHour) = room.getTime()
         category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}
         type_room = category[typeroom]
         x = [x for x in db.item.find({"_id": ObjectId(str(app.primaryItemId[app.indexRoom[typeroom]]))}, {"price_max": True, "id_bidder": True})][0]

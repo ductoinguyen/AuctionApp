@@ -41,6 +41,7 @@ def checkTimeRemaining(typeroom):
             app.timeRoom[app.indexRoom[typeroom]] = (now, duration)     
         except:
             1
+    time_room = app.timeRoom[app.indexRoom[typeroom]]
     diffTime = differenceTime(time_room[0], now)
     timeRemaining = time_room[1] - (diffTime[0]*60 + diffTime[1])
     mins = timeRemaining // 60
