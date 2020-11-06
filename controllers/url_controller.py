@@ -28,7 +28,7 @@ def submitLogin():
     except:
         data = {"result": "Đăng nhập lại"}
         return appFlask.response_class(json.dumps(data),mimetype='application/json')
-    checkLogin = db_controller.checkLogin(app.db, username, password)
+    checkLogin = db_controller.checkLogin(username, password)
     if checkLogin == -1:
         return appFlask.response_class(json.dumps({"result": "Kiểm tra lại username và password"}), mimetype='application/json')
     session['username'] = username

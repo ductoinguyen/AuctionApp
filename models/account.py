@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
 import app, json
+from controllers import db_controller
 from bson.objectid import ObjectId
+from datetime import datetime
 
 def getNameAccount():
     appFlask = app.app
@@ -66,3 +68,29 @@ def getAllHistoryAuction():
         except:
             continue
     return appFlask.response_class(json.dumps(data), mimetype='application/json') 
+
+def submitSignup():
+    appFlask = app.app
+    db = app.db
+    try:
+        username = request.form['username']
+        password = request.form['password']
+        nameAccount = request.form['nameAccount']
+        address = request.form['address']
+        birthday = request.form['birthday']
+        phoneNumber = request.form['phoneNumber']
+    except:
+        username = request.get_json()['username']
+        password = request.get_json()['password']
+        nameAccount = request.get_json()['nameAccount']
+        address = request.get_json()['address']
+        birthday = request.get_json()['birthday']
+        phoneNumber = request.get_json()['phoneNumber']   
+    createDate = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    db.bidder.insert({"username": username, "password": password, "name": nameAccount, "address": address, "birthday": birthday, "accountBalance": 0, "createDate": createDate})
+    session['username'] = username
+    session['password'] = password
+    session['type_account'] = "bidder"
+    session['name_account'] = nameAccount
+    session['id'] = [str(x["_id"]) for x in db.bidder.find({"username": username})][0]
+    return appFlask.response_class(json.dumps({"result": "Thành công", "type_account" : session['type_account']}), mimetype='application/json')

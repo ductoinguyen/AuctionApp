@@ -23,7 +23,8 @@ def getDB():
     # print('ok')
     return db
 
-def checkLogin(db, username, password):
+def checkLogin(username, password):
+    db = app.db
     result = (db.auctioneer.find({"username": username, "password": password}, {"_id": True, "name": True}))
     x = []
     for x in result:
@@ -42,7 +43,8 @@ def checkLogin(db, username, password):
         return (x['_id'], "admin", x["name"])
     return -1
 
-def checkAccount(db, username):
+def checkAccount(username):
+    db = app.db
     try:
         result = (db.auctioneer.find({"username": username}, {"_id": True}))
         x = []

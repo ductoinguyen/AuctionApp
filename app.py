@@ -27,6 +27,14 @@ def login():
 def logout():
     return url_controller.logout()
 
+@app.route("/submitSignup", methods=["POST"])
+def submitSignup():
+    return account.submitSignup()
+
+@app.route("/checkAccount/<username>", methods=["GET"])
+def checkAccount(username):
+    return app.response_class(json.dumps({"result": db_controller.checkAccount(username)}), mimetype='application/json')
+
 @app.route("/cac-phong-dau-gia", methods=["GET"])
 def rooms():
     return render_template('render/category.html')

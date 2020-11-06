@@ -47,12 +47,12 @@
                         <form id="c_form-h" class="">
                             <div class="form-group row">
                                 <div class="col-10">
-                                    <input type="text" class="form-control" id="form11" placeholder="Username"> 
+                                    <input type="text" class="form-control" id="form11" required placeholder="Username"> 
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-10">
-                                    <input type="password" class="form-control" id="form12" placeholder="Password">
+                                    <input type="password" class="form-control" id="form12" required placeholder="Password">
                                 </div>
                             </div>
                         </form>
@@ -64,21 +64,21 @@
                             <a><img src="https://i0.wp.com/hopdungcardvisit.com/wp-content/uploads/2019/05/Agribank-logo.png?resize=213%2C76&amp;ssl=1" style="width: 40%; float: right;"></a>
                         </div>
                         <p class="lead"> <b>Số tài khoản</b></p>
-                        <input class="form-control" type="text" placeholder="14 chữ số">
+                        <input class="form-control" type="text" required placeholder="14 chữ số">
                         <p class="lead mt-2"> <b>Mật khẩu</b></p>
-                        <input class="form-control" type="password" placeholder="Password">
+                        <input class="form-control" type="password" required placeholder="Password">
                     </div>
                     <div class="col-md-7 text-left px-4 pt-4">
                         <h3 class="mb-3">Thông tin cá nhân</h3>
                         <form>
                             <div class="form-row">
-                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="Họ tên"> </div>
-                                <div class="form-group col-md-6"> <input type="date" class="form-control" id="form37" placeholder="Ngày sinh"> </div>
+                                <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" required placeholder="Họ tên"> </div>
+                                <div class="form-group col-md-6"> <input type="date" class="form-control" id="form37" required placeholder="Ngày sinh"> </div>
                             </div>
-                            <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Địa chỉ"> </div>
-                            <div class="form-group"> <input type="text" class="form-control" id="form40" placeholder="Số điện thoại"> </div>
+                            <div class="form-group"> <input type="text" class="form-control" id="form38" required placeholder="Địa chỉ"> </div>
+                            <div class="form-group"> <input type="text" class="form-control" id="form40" required placeholder="Số điện thoại"> </div>
                             <div class="form-group"> <textarea class="form-control" id="form43" rows="3" placeholder="Thông tin khác"></textarea> </div>
-                            <button class="btn btn-success" onclick="submitSignUp()">Đăng ký</button>
+                            <div class="btn btn-success" onclick="submitSignUp()">Đăng ký</div>
                         </form>
                         <div class="row mt-4">
                             <div class="col-md-6">
@@ -131,5 +131,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../static/script/common.js"></script>
+    <script src="../static/script/signup.js"></script>
 </body>
 </html>
