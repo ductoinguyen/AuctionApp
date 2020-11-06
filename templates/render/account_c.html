@@ -25,33 +25,9 @@
             transition: transform 0.2s linear;
         }
     </style>
-    <script>
-        (function(document) {
-            var div = document.getElementById('previewBtn');
-            var icon = document.getElementById('showMore');
-            var open = false;
-            div.addEventListener('click', function() {
-                if (open) {
-                    icon.className = 'fa fa-caret-down';
-                } else {
-                    icon.className = 'fa fa-caret-down open';
-                }
-                open = !open;
-            });
-        })(document);
-
-        $(document).ready(function() {
-            $("#previewBtn").click(function() {
-                $("#imgPreview").slideToggle();
-            });
-
-            $("#imgPreview").hover(function() {
-                $("#content-item").slideToggle(100);
-            });
-        });
-    </script>
 </head>
 <body>
+    <!-- Menu -->
     <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
         <div class="container">
             <a class="navbar-brand text-primary" href="">
@@ -67,14 +43,17 @@
                     <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Phòng đấu giá</a> </li>
                     <li class="nav-item" style="display: none;"> <a class="nav-link" href="" style="color: black;">Lịch sử giao dịch</a> </li>
                     <li class="account-menu">
-                        <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount">Vũ Thành Trung</a>
+                        <a class="btn navbar-btn ml-md-2 btn-light account-btn" style="color: black;" id="nameAccount">Tài khoản</a>
                         <a class="btn navbar-btn ml-md-2 btn-light account-btn" href="/dang-xuat" style="color: black;">Đăng xuất</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
     <div class="main container" style="min-height: 700px;">
+        
+        <!-- Mô tả nội dung khi hover -->
         <div class="p-2" id="content-item" style="position: absolute; display: none; width: 650px; top: 184px; right: 738; background-color: white; z-index: 9999; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);">
             <div>
                 <p><b>Trang phục Ai Cập</b> cổ đại chỉ đến những trang phục từ thời Đồ đá mới (trước 3100 TCN) đến cuối thời kỳ cai trị của nhà Ptolemaios (năm 30 TCN) trong lịch sử Ai Cập cổ đại. Những bộ trang phục này rất đa dạng màu sắc, thường được tô điểm bởi những món đồ trang sức quý giá. Chúng không chỉ đẹp mà còn rất thoải mái và mát mẻ, được thiết kế cho phù hợp với khí hậu khô cằn của sa mạc.</p>
@@ -83,7 +62,11 @@
                 <p>Sự chảy trôi của các trào lưu cùng nhu cầu hội nhập quốc tế, tinh thần hướng mình ra thế giới đã đòi hỏi phải đơn giản hơn, bớt cầu kỳ hơn, có tính ứng dụng cao hơn và tập trung vào kinh tế hơn.</p>
             </div>
         </div>
+
+        <!--  -->
         <div class="row">
+
+            <!-- Phần bên trái -->
             <section class="col-md-7 account-section px-0">
                 <div class="col-md-12 pl-0 py-4 pr-4">
                     <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
@@ -322,12 +305,19 @@
                     </div>
                 </div>
             </section>
-            <section class="col-md-5 request-section py-4 px-0" style="">
+
+            <!-- Phần bên phải -->
+            <section class="col-md-5 request-section py-4 px-0">
                 <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
+                    <!-- Tiêu đề -->
                     <h3> Duyệt yêu cầu </h3>
+                    
+                    <!-- Nội dung của phần duyệt yêu cầu -->
                     <div class="main row" style="padding: 0 15px;">
                         <div class="col-md-12" style="background-color: #dee2e6; overflow-y: scroll;  border-radius: 0.25rem; height: 571px;">
+                            <!-- Một yêu cầu -->
                             <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
+                                
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-11 p-0">
@@ -359,77 +349,21 @@
                                         <div class="" style="padding: 7.5px; "><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
                                     </div>
                                 </div>
+
+                                <!-- Ảnh của sản phẩm yêu cầu -->
                                 <div class="col-md-12" id="imgPreview" style="padding-bottom: 15px; display: none;">
-                                    <img id="anhSanPham" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width: 100%; position: relative;">
+                                    <img id="anhSanPham" src="" style="width: 100%; position: relative;">
                                 </div>
                             </div>
-                            <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
-                                <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px" id="tenSanPham"> Trang phục Ai Cập </h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>
-                                    </div>
-                                    <div class="col-md-4 p-0">
-                                    <h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;" id="giaKhoiDiem">1,299,999,000</h5>
-                                    </div>
-                                    <div class="col-md-3 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="p-0">
-                                    <h5 class="mb-0" style="padding: 15px">Loại:</h5>
-                                    </div>
-                                    <div class="p-0">
-                                    <h5 class="mb-0 pl-0" id="tenPhong" style="padding: 15px; width: 118px;">Thời trang</h5>
-                                    </div>
-                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-success border-0" href="#">Chấp nhận</a></div>
-                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
-                                <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px" id="tenSanPham"> Tranh Monalisa </h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>
-                                    </div>
-                                    <div class="col-md-4 p-0">
-                                    <h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px" id="giaKhoiDiem">10,599,999,000</h5>
-                                    </div>
-                                    <div class="col-md-3 p-0">
-                                    <h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="p-0">
-                                    <h5 class="mb-0" style="padding: 15px">Loại:</h5>
-                                    </div>
-                                    <div class="p-0">
-                                    <h5 class="mb-0 pl-0" id="tenPhong" style="padding: 15px; width: 118px;">Hội họa</h5>
-                                    </div>
-                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-success border-0" href="#">Chấp nhận</a></div>
-                                    <div class="" style="padding: 7.5px"><a class="btn btn-primary bg-danger border-0" href="#" style="">Từ chối</a></div>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Next request -->
+                            
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </div>
+
+    <!-- Footer -->
     <footer class="py-3 bg-dark text-white">
         <div class="container">
             <div class="row">
@@ -460,5 +394,31 @@
             </div>
         </div>
     </footer>
+    <script src="../static/script/common.js"></script>
+    <script>
+        (function(document) {
+            var div = document.getElementById('previewBtn');
+            var icon = document.getElementById('showMore');
+            var open = false;
+            div.addEventListener('click', function() {
+                if (open) {
+                    icon.className = 'fa fa-caret-down';
+                } else {
+                    icon.className = 'fa fa-caret-down open';
+                }
+                open = !open;
+            });
+        })(document);
+
+        $(document).ready(function() {
+            $("#previewBtn").click(function() {
+                $("#imgPreview").slideToggle();
+            });
+
+            $("#imgPreview").hover(function() {
+                $("#content-item").slideToggle(100);
+            });
+        });
+    </script>
 </body>
 </html>

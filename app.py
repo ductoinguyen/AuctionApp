@@ -4,7 +4,7 @@ import os, json, threading, time
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from models import room as t_rom, account
+from models import room as t_rom, account, request_item
 
 TEMPLATE_DIR = os.path.abspath('./templates')
 STATIC_DIR = os.path.abspath('./static')
@@ -139,12 +139,16 @@ def getAllHistoryAuction():
 def benC():
     return render_template('render/account_c.html')
 
+@app.route("/getAllRequestFromC", methods=["GET"])
+def getAllRequestFromC():
+    return request_item.getAllRequestFromC()
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()
     # dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     # return app.response_class(json.dumps([{"test": str(dt_string)}]),mimetype='application/json')
-    return render_template('render/account_a.html')
+    return render_template('render/account_c.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
