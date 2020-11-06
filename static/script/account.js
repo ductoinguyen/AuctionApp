@@ -25,7 +25,7 @@ fetch("../getInfoBidder")
                     document.getElementById("address").value = data.address;
                     document.getElementById("birthDay").value = data.birthday;
                     // alert(data.birthday)
-                    document.getElementById("soDuTaiKhoan").innerHTML += " " + formatMoney(data.accountBalance);
+                    document.getElementById("soDuTaiKhoan").innerHTML = formatMoney(data.accountBalance);
                     document.getElementById("phone").value = data.phoneNumber;
                 }
             )

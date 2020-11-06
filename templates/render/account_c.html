@@ -15,6 +15,10 @@
             background-color: white;
         }
         
+        #previewBtn:hover {
+            cursor: pointer;
+        }
+
         .fa-caret-down{
             transform: rotate(0deg);
             transition: transform 0.2s linear;
@@ -25,31 +29,6 @@
             transition: transform 0.2s linear;
         }
     </style>
-    <script>
-        (function(document) {
-            var div = document.getElementById('previewBtn');
-            var icon = document.getElementById('showMore');
-            var open = false;
-            div.addEventListener('click', function() {
-                if (open) {
-                    icon.className = 'fa fa-caret-down';
-                } else {
-                    icon.className = 'fa fa-caret-down open';
-                }
-                open = !open;
-            });
-        })(document);
-
-        $(document).ready(function() {
-            $("#previewBtn").click(function() {
-                $("#imgPreview").slideToggle();
-            });
-
-            $("#imgPreview").hover(function() {
-                $("#content-item").slideToggle(100);
-            });
-        });
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md border-dark border-bottom navbar-light">
@@ -305,7 +284,7 @@
                                                             <h6 class="mb-0" id="bidPaidPrice"> 800,000,000 </h6>
                                                         </div>
                                                         <div class="col-md-4 px-0">
-                                                            <h6> VNĐ </h6>
+                                                            <h6 class="mb-0"> VNĐ </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,7 +339,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12" id="imgPreview" style="padding-bottom: 15px; display: none;">
-                                    <img id="anhSanPham" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width: 100%; position: relative;">
+                                    <img id="anhSanPham" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg" style="width: 100%; position: relative; border: 1px solid rgba(0, 0, 0, 0.15);">
                                 </div>
                             </div>
                             <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
@@ -460,5 +439,30 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function(document) {
+            var div = document.getElementById('previewBtn');
+            var icon = document.getElementById('showMore');
+            var open = false;
+            div.addEventListener('click', function() {
+                if (open) {
+                    icon.className = 'fa fa-caret-down';
+                } else {
+                    icon.className = 'fa fa-caret-down open';
+                }
+                open = !open;
+            });
+        })(document);
+
+        $(document).ready(function() {
+            $("#previewBtn").click(function() {
+                $("#imgPreview").slideToggle();
+            });
+
+            $("#imgPreview").hover(function() {
+                $("#content-item").slideToggle(100);
+            });
+        });
+    </script>
 </body>
 </html>
