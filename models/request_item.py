@@ -83,3 +83,9 @@ def acceptRequest():
 def createRequestFromA():
     # điền nốt
     pass
+
+def refuseRequest(id):
+    appFlask = app.app
+    db = app.db
+    db.item.update({"_id": ObjectId(id)}, {"$set": {"status": "fail"}})
+    return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')

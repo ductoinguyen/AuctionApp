@@ -155,6 +155,10 @@ def getAllRequestFromC():
 def acceptRequest():
     return request_item.acceptRequest()
 
+@app.route("/refuseRequest/<id>", methods=["GET"])
+def refuseRequest(id):
+    return request_item.refuseRequest(id)
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()

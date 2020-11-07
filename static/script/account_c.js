@@ -94,6 +94,7 @@ function chapNhan(elmt) {
                         data => {
                             if (data.result == "ok") {
                                 alert("Thành công!")
+                                elmt.parentNode.parentNode.parentNode.remove()
                             } else {
                                 alert("Hệ thống đang bận, vui lòng thử lại sau!")
                             }
@@ -106,6 +107,30 @@ function chapNhan(elmt) {
         )
     }
 
+}
+
+function tuChoi(elmt) {
+    id_item = elmt.parentNode.parentNode.childNodes[1].childNodes[0].childNodes[0].innerHTML.substring(4);
+    fetch("../refuseRequest/" + id_item)
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        if (data.result == "ok") {
+                            alert("Thành công!")
+                            elmt.parentNode.parentNode.parentNode.remove()
+                        } else {
+                            alert("Hệ thống đang bận, vui lòng thử lại sau!")
+                        }
+                    }
+                )
+            } else {
+                alert("Hệ thống đang bận, vui lòng thử lại sau!")
+            }
+        }
+    )
 }
 
 fetch("../getAllRequestFromC")
