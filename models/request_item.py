@@ -3,6 +3,7 @@ import time
 import app, json
 from bson.objectid import ObjectId
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, escape
+from models import room
 
 def filterDate(create_date):
     difference = datetime.now() - datetime.strptime(create_date, "%d/%m/%Y")
@@ -15,7 +16,7 @@ def getAllRequestFromA(id):
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y")
     result = [] 
-    for item in db.item.find({"id_auctioneer": id}, {"create_date": True, "_id": True}):
+    for item in db.item.find({"id_auctioneer": ObjectId(id)}, {"create_date": True, "_id": True}):
         thoiGianChenhLech = filterDate(item["create_date"])
         if thoiGianChenhLech >= 0:
             result.append({
@@ -33,6 +34,7 @@ def getAllRequestFromA(id):
                 "category": x["category"],
                 "create_date": x["create_date"],
                 "status": x["status"],
+                "open_bid": x["open_bid"]
             } for x in db.item.find({"_id": {"$in": result}})]
     return appFlask.response_class(json.dumps(result), mimetype='application/json')    
 
@@ -82,7 +84,27 @@ def acceptRequest():
 
 def createRequestFromA():
     # điền nốt
-    pass
+    appFlask = app.app
+    db = app.db
+    try:
+        name = request.form['name']
+        content = request.form['content']
+        image = request.form['image']
+        category = request.form['category']
+        id_auctioneer = request.form['id_auctioneer']
+        price_start = request.form['price_start']
+        price_max = request.form['price_max']
+    except:
+        name = request.get_json()['name']
+        content = request.get_json()['content']
+        image = request.get_json()['image']
+        category = request.get_json()['category']
+        id_auctioneer = request.get_json()['id_auctioneer']
+        price_start = request.get_json()['price_start']
+        price_max = request.get_json()['price_max']
+    create_date = room.getTime()[0];
+    db.item.insert_one({"name": name, "content": content, "image": image, "create_date": create_date, "category": category, "id_auctioneer": ObjectId(id_auctioneer), "status": "handling", "price_start": price_start, "price_max": price_max})
+    return appFlask.response_class(json.dumps({"result": "success"}), mimetype='application/json')
 
 def refuseRequest(id):
     appFlask = app.app
