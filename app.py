@@ -159,6 +159,10 @@ def acceptRequest():
 def refuseRequest(id):
     return request_item.refuseRequest(id)
 
+@app.route("/xoaTaiKhoan/<username>", methods=["GET"])
+def deleteAccount(username):
+    return account.deleteAccount(username)
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()

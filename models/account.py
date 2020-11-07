@@ -94,3 +94,11 @@ def submitSignup():
     session['name_account'] = nameAccount
     session['id'] = [str(x["_id"]) for x in db.bidder.find({"username": username})][0]
     return appFlask.response_class(json.dumps({"result": "Thành công", "type_account" : session['type_account']}), mimetype='application/json')
+
+
+def deleteAccount(username):
+    appFlask = app.app
+    db = app.db
+    db.bidder.remove({"username": username})
+    db.auctioneer.remove({"username": username})
+    return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')

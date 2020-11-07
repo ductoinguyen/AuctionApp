@@ -168,3 +168,48 @@ function hienThiThemThongTin(elmt) {
         $("#content-item").slideToggle(100);
     });
 }
+
+function refeshRequest() {
+    fetch("../getAllRequestFromC")
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        mangNoiDungSanPham = {}
+                        for (var i = 0; i < data.length; i++) {
+                            var item = data[i];
+                            document.getElementById("cacYeuCau").innerHTML += contentHTMLRequest(item["name"], item["price_start"], item["category"], item["image"], item["id"], item["create_date"])
+                            mangNoiDungSanPham["ID: " + item["id"]] = item["content"]
+                        }
+                    }
+                )
+            }
+        }
+    )
+}
+
+function xoaTaiKhoan() {
+    username = document.getElementById("userNameXoa").value
+    fetch("../xoaTaiKhoan/" + username)
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        if (data.result == "ok") {
+                            alert("Thành công!")
+                            document.getElementById("userNameXoa").value = ""
+                        } else {
+                            alert("Hệ thống đang bận, vui lòng thử lại sau!")
+                        }
+                    }
+                )
+            } else {
+                alert("Hệ thống đang bận, vui lòng thử lại sau!")
+            }
+        }
+    )
+}

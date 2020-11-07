@@ -64,15 +64,18 @@
             <section class="col-md-7 account-section px-0">
                 <div class="col-md-12 pl-0 py-4 pr-4">
                     <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
+                        <!-- Xóa tài khoản -->
                         <div class="col-md-12" style="padding: 0 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem;">
                             <h3 class="" style="padding-top: 15px;"> Xóa tài khoản </h3>
                             <div class="row" style="padding: 0 15px;">
                                 <div class="form-group" style="width: 85%; padding-right: 7.5px">
-                                    <input class="form-control" type="text" placeholder="Username" required="">
+                                    <input class="form-control" type="text" placeholder="Username" id="userNameXoa">
                                 </div>
-                                <a class="btn btn-primary" href="" style="height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 1rem; font-size: 1rem; font-weight: 200; line-height: 1.5; margin-left: 5px; width: 14%">Xóa</a>
+                                <div class="btn btn-primary" style="height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 1rem; font-size: 1rem; font-weight: 200; line-height: 1.5; margin-left: 5px; width: 14%" onclick="xoaTaiKhoan()">Xóa</div>
                             </div>
                         </div>
+
+                        <!-- Bộ filter -->
                         <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; padding: 15px;">
                             <div class="row" style="padding: 0 15px;">
                                 <div class="col-md-4" style="padding-left: 0; padding-right: 7.5px">
@@ -303,7 +306,7 @@
             <!-- Cột phải -->
             <section class="col-md-5 request-section py-4 px-0">
                 <div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); padding: 15px;">
-                    <h3> Duyệt yêu cầu </h3>
+                    <h3> Duyệt yêu cầu <i class="fa fa-refresh" onclick="refeshRequest()" style="width: 20px; float: right; cursor: pointer"></i> </h3>
                     <div class="main row" style="padding: 0 15px;">
                         <div class="col-md-12" id="cacYeuCau" style="background-color: #dee2e6; overflow-y: scroll;  border-radius: 0.25rem; height: 571px;">
                             <!-- <div class="row bg-light p-0" style="margin: 15px 0; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);" id="request">
