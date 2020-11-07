@@ -79,7 +79,7 @@ def acceptRequest():
         id_session = request.get_json()['id_session']
     open_bid = open_bid.split("-")
     open_bid = open_bid[2] + "/" + open_bid[1] + "/" + open_bid[0]
-    db.item.update({"_id": ObjectId(id_item)}, {"$set": {"open_bid": open_bid, "index_session": id_session}})
+    db.item.update({"_id": ObjectId(id_item)}, {"$set": {"open_bid": open_bid, "index_session": id_session, "status": "ready to auction"}})
     return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')
 
 def createRequestFromA():
