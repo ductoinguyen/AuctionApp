@@ -161,11 +161,25 @@ def getItemInRoom(loaiphong):
 def createRoom(typeroom):
     appFlask = app.app
     db = app.db
-    now = datetime.now()
-    start = now.strftime("%d/%m/%Y %H:%M:%S")
-    duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
-    db.time_room.update({"name": typeroom}, {"$set": {"start": start, "duration": duration}})
-    return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')
+    now = datetime.now()  
+    mocTime = [x["start"] for x in db.time_room.find({"name": typeroom}, {"start": True})][0]
+    mocTime = datetime.strptime(mocTime, "%d/%m/%Y %H:%M:%S")
+    strMocTime = mocTime.strftime("%d/%m/%Y %H")
+    strNow = now.strftime("%d/%m/%Y %H")
+    
+    if (strMocTime != strNow):
+        # cập nhật toàn bộ
+        for x in db.item.find({"status": "ready to auction"}, {"id_bidder": True, "price_max": True, "_id": True}):
+            db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}}) 
+            db.item.update_one({"_id": ObjectId(x["_id"])}, {"$set": {"status": "paid"}})
+        start = now.strftime("%d/%m/%Y %H:%M:%S")
+        duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
+        db.time_room.update({"name": typeroom}, {"$set": {"start": start, "duration": duration}})
+        return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')
+            
+    else:
+        # lấy dữ liệu trong db
+        return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')
 
 def getPricemaxTimedb(typeroom):
     appFlask = app.app
