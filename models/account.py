@@ -10,7 +10,13 @@ def getNameAccount():
         return appFlask.response_class(json.dumps({"name_account": session["name_account"]}), mimetype='application/json')
     except:
         return appFlask.response_class(json.dumps({"name_account": "Tài khoản"}), mimetype='application/json')
-    
+
+def getIdAuctioneer():
+    appFlask = app.app
+    db = app.db
+    x = [x for x in db.auctioneer.find({"_id": ObjectId(str(session["id"]))})][0]
+    return appFlask.response_class(json.dumps({"id_auctioneer": str(session["id"]), "name": x["name"], "address": x["address"], "birthday": str(x["birthday"]).split(" ")[0], "accountBalance": x["accountBalance"], "phoneNumber": x["phoneNumber"]}), mimetype='application/json')
+
 def getInfoBidder():
     appFlask = app.app
     db = app.db
