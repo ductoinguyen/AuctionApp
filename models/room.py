@@ -169,7 +169,7 @@ def createRoom(typeroom):
     
     if (strMocTime != strNow):
         # cập nhật toàn bộ
-        for x in db.item.find({"status": "ready to auction"}, {"id_bidder": True, "price_max": True, "_id": True}):
+        for x in db.item.find({"status": "ready to auction", "id_bidder": { "$exists": True, "$ne": None}}, {"_id": True, "id_bidder": True, "price_max": True}):
             db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}}) 
             db.item.update_one({"_id": ObjectId(x["_id"])}, {"$set": {"status": "paid"}})
         start = now.strftime("%d/%m/%Y %H:%M:%S")
