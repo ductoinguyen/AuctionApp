@@ -163,6 +163,10 @@ def refuseRequest(id):
 def deleteAccount(username):
     return account.deleteAccount(username)
 
+@app.route("/filterItem", methods=["POST"])
+def filterItem():
+    return request_item.filterItem()
+
 @app.route("/test", methods=["GET"])
 def test():
     # now = datetime.now()

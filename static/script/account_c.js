@@ -213,3 +213,120 @@ function xoaTaiKhoan() {
         }
     )
 }
+
+function formatMoney(amount, decimalCount = 0, decimal = ".", thousands = ",") {
+    try {
+        decimalCount = Math.abs(decimalCount);
+        decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+    
+        const negativeSign = amount < 0 ? "-" : "";
+    
+        let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+        let j = (i.length > 3) ? i.length % 3 : 0;
+    
+        return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+    } catch (e) {
+        console.log(e)
+    }
+};
+
+function renderContentFilter(item) {
+    var content = '<div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">'+
+                '<div class="col-md-12">'+
+                    '<div class="row">'+
+                        '<div class="col-md-7 pl-0">'+
+                            '<div class="row">'+
+                                '<div class="col-md-12">'+'<h6 id="searchName">'+ item.name + '</h6>'+'</div>'+
+                            '</div>'+
+                            '<div class="row">'+
+                                '<div class="col-md-2">' + '<h6> ID: </h6>'+ '</div>'+
+                                '<div class="col-md-10">'+ '<h6>' + item.id_item + '</h6>'+ '</div>'+
+                            '</div>'+
+                            '<div class="row">'+
+                                '<div class="col-md-3 pr-0">'+ '<h6> Giá mở: </h6>'+ '</div>'+ 
+                                '<div class="col-md-4 px-0 text-right">'+'<h6>'+ formatMoney(item.price_start) +' </h6>'+ '</div>'+
+                                '<div class="col-md-5"><h6> VNĐ </h6></div>'+
+                            '</div>'+
+                            '<div class="row">' + 
+                                '<div class="col-md-4 pr-0">'+'<h6> Người bán: </h6>'+'</div>'+
+                                '<div class="col-md-8"> <h6> ' + item.name_auction + '</h6> </div>'+
+                            '</div>'+
+                            '<div class="row">'+
+                                '<div class="col-md-12"><h6><b><em> '+ item.status +' </em></b></h6></div>'+
+                            '</div>';
+                            if (item.status == 'Đã đấu giá') {
+                                content += '<div class="row">'+
+                                                '<div class="col-md-12"><h6><b><em>Người mua: '+ item.name_bidder +' </em></b></h6></div>'+
+                                            '</div>' +
+                                            '<div class="row">'+
+                                                '<div class="col-md-12"><h6><b><em>Giá mua: '+ formatMoney(item.price_max) +' </em></b></h6></div>'+
+                                            '</div>';
+                            } else if (item.status == 'Đang đấu giá') {
+                                content += '<div class="row">'+
+                                                '<div class="col-md-12"><h6><b><em>Người đang đấu giá cao nhất: '+ item.name_bidder +' </em></b></h6></div>'+
+                                            '</div>' +
+                                            '<div class="row">'+
+                                                '<div class="col-md-12"><h6><b><em>Giá đấu: '+ formatMoney(item.price_max) +' </em></b></h6></div>'+
+                                            '</div>';
+                            }
+            content += '</div>'+
+                        '<div class="col-md-5 p-0">'+
+                            '<img id="searchItemImg" style="width: 100%; border: 1px solid rgba(0, 0, 0, 0.15);" src="' + item.image + '">'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+    return content;
+}
+
+function filterItem(open_bid, index_session, category) {
+    fetch("../filterItem", {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({open_bid: open_bid, index_session: index_session, category: category}),
+        cache: "no-cache",
+        headers: new Headers({
+            "content-type": "application/json"
+        })      
+    })
+    .then(
+        resp => {
+            if (resp.status == 200) {
+                resp.json()
+                .then(
+                    data => {
+                        var contentHTML = ""
+                        console.log(data)
+                        for (var i = 0; i < data.length; i++) {
+                            contentHTML += renderContentFilter(data[i])
+                        }
+                        document.getElementById("noiDungLoc").innerHTML = contentHTML;
+                    }
+                )
+            } else {
+                // alert("Hệ thống đang bận, vui lòng thử lại sau!")
+            }
+        }
+    )
+}
+
+var filterDate = document.getElementById("filterDate");
+var filterHour = document.getElementById("filterHour");
+var filterCategory = document.getElementById("filterCategory");
+
+filterDate.onchange = function () {
+    if (filterHour.value != "" && filterCategory.value != "") {
+        filterItem(filterDate.value, filterHour.value, filterCategory.value)  
+    }
+}
+
+filterHour.onchange = function () {
+    if (filterDate.value != "" && filterCategory.value != "") {
+        filterItem(filterDate.value, filterHour.value, filterCategory.value)  
+    }
+}
+filterCategory.onchange = function () {
+    if (filterHour.value != "" && filterDate.value != "") {
+        filterItem(filterDate.value, filterHour.value, filterCategory.value)  
+    }
+}

@@ -78,12 +78,13 @@
                         <!-- Bộ filter -->
                         <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; padding: 15px;">
                             <div class="row" style="padding: 0 15px;">
+                                <!-- Bộ lọc -->                                
                                 <div class="col-md-4" style="padding-left: 0; padding-right: 7.5px">
-                                    <input class="form-control" type="date" required="required">
+                                    <input class="form-control" id="filterDate" type="date" required="required">
                                 </div>
                                 <div class="col-md-4" style="padding: 0 7.5px;">
-                                    <select class="form-control" id="hour" required="required">
-                                        <option value="">Chọn phiên</option>
+                                    <select class="form-control" id="filterHour" required="required">
+                                        <option value="-1">Chọn phiên</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -111,7 +112,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4" style="padding-right: 0; padding-left: 7.5px;">
-                                    <select class="form-control" id="category" required="required">
+                                    <select class="form-control" id="filterCategory" required="required">
                                         <option value="">Chọn loại phòng</option>
                                         <option value="trangsuc">Trang sức</option>
                                         <option value="doco">Đồ cổ</option>
@@ -120,8 +121,11 @@
                                         <option value="doluuniem">Đồ lưu niệm</option>
                                     </select>
                                 </div>
-                                <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; height: 400px; background-color: #dee2e6; padding: 15px; overflow-y: scroll;">
-                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+
+                                <!-- Kết quả lọc -->
+                                <div class="col-md-12" style="margin-top: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; height: 400px; background-color: #dee2e6; padding: 15px; overflow-y: scroll;" id="noiDungLoc">
+                                    <!-- KQ1 -->
+                                    <!-- <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-7 pl-0">
@@ -164,12 +168,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 p-0" style="border: 1px solid rgba(0, 0, 0, 0.15);">
-                                                    <img id="searchItemImg" style="width: 100%;" src="https://image.yes24.vn/Upload/ProductImage/TWINKRING2019/2035128_L.jpg">
+                                                    <img id="searchItemImg" style="width: 100%;" src="https://cdnimg.vietnamplus.vn/t1200/Uploaded/mzdic/2019_12_09/hcv.jpg">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+                                    </div> -->
+                                    <!-- KQ2 -->
+                                    <!-- <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-7 pl-0">
@@ -224,8 +229,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
+                                    </div> -->
+                                    <!-- KQ3 -->
+                                    <!-- <div class="row mb-2" style="padding: 15px; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); margin: 0; background-color: #ffffff;">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-7 pl-0">
@@ -294,7 +300,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Next item -->
                                 </div>
                             </div>
