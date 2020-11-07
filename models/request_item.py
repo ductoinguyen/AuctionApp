@@ -24,8 +24,8 @@ def getAllRequestFromC():
                 "thoiGianChenhLech": thoiGianChenhLech
             })  
     result = sorted(result, key = lambda item: item["thoiGianChenhLech"])
-    if len(result) < 5:
-        result = result[::5]
+    if len(result) > 5:
+        result = result[:5]
     result = [item["id"] for item in result]
     result = [{
                 "id": str(x["_id"]),
@@ -33,6 +33,23 @@ def getAllRequestFromC():
                 "content": x["content"],
                 "image": x["image"],
                 "price_start": x["price_start"],
-                "category": x["category"]
+                "category": x["category"],
+                "create_date": x["create_date"]
             } for x in db.item.find({"_id": {"$in": result}})]
     return appFlask.response_class(json.dumps(result), mimetype='application/json')
+
+def acceptRequest():
+    appFlask = app.app
+    db = app.db
+    try:
+        id_item = request.form['id_item']
+        open_bid = request.form['open_bid']
+        id_session = request.form['id_session']
+    except:
+        id_item = request.get_json()['id_item']
+        open_bid = request.get_json()['open_bid']
+        id_session = request.get_json()['id_session']
+    open_bid = open_bid.split("-")
+    open_bid = open_bid[2] + "/" + open_bid[1] + "/" + open_bid[0]
+    db.item.update({"_id": ObjectId(id_item)}, {"$set": {"open_bid": open_bid, "index_session": id_session}})
+    return appFlask.response_class(json.dumps({"result": "ok"}), mimetype='application/json')
