@@ -139,6 +139,14 @@ def getAllHistoryAuction():
 def benC():
     return render_template('render/account_c.html')
 
+@app.route("/getAllRequestFromA/", methods=["GET"])
+def getAllRequestFromA():
+    return request_item.getAllRequestFromA(session["id"])
+
+@app.route("/createRequestFromA", methods=["POST"])
+def createRequestFromA():
+    return request_item.createRequestFromA()
+
 @app.route("/getAllRequestFromC", methods=["GET"])
 def getAllRequestFromC():
     return request_item.getAllRequestFromC()
