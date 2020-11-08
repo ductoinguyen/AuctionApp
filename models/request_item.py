@@ -103,7 +103,7 @@ def createRequestFromA():
         price_start = request.get_json()['price_start']
         price_max = request.get_json()['price_max']
     create_date = room.getTime()[0];
-    db.item.insert_one({"name": name, "content": content, "image": image, "create_date": create_date, "category": category, "id_auctioneer": ObjectId(id_auctioneer), "status": "handling", "price_start": price_start, "price_max": price_max})
+    db.item.insert_one({"name": name, "content": content, "image": image, "open_bid": "", "create_date": create_date, "category": category, "id_auctioneer": ObjectId(id_auctioneer), "status": "handling", "price_start": price_start, "price_max": price_max})
     return appFlask.response_class(json.dumps({"result": "success"}), mimetype='application/json')
 
 def refuseRequest(id):

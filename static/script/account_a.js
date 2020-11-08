@@ -38,7 +38,6 @@ function sendRequest() {
                         } else {
                             // alert(data.result)
                         }
-
                     }
                 )
             }
@@ -53,7 +52,7 @@ fetch("../getAllRequestFromA" )
             resp.json()
             .then (
                 data => {
-                    for (var i = 0; i < data.length - 1; i++) {
+                    for (var i = 0; i < data.length; i++) {
                         var contentHTML = ""
                         var item = data[i]
                         contentHTML +=
@@ -68,8 +67,10 @@ fetch("../getAllRequestFromA" )
                                     '<div class="col-md-12 p-0"><h5 class="mb-0 pb-0" style="padding: 15px">Ngày tạo yêu cầu: '+ item["create_date"] +'</h5></div>'+
                                 '</div>'
 
-                                if (item["status"] == "ready to auction") {
-                                    contentHTML +=
+
+
+                        if (item["status"] == "ready to auction") {
+                            contentHTML +=
                                 '<div class="row">'+
                                     '<div class="col-md-4 p-0">'+
                                         '<h5 class="mb-0 pb-0 pr-0" style="padding: 15px" > Ngày đấu giá: </h5>'+
@@ -77,10 +78,7 @@ fetch("../getAllRequestFromA" )
                                     '<div class="col-md-4 p-0 text-right">'+
                                         '<h5 class="mb-0 pb-0" style="padding: 15px;">'+ item["open_bid"] +'</h5>'+
                                     '</div>'+
-                                '</div>'
-                                }
-                                
-                                contentHTML +=
+                                '</div>'+
                                 '<div class="row">'+
                                     '<div class="col-md-4 p-0">'+
                                         '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
@@ -99,21 +97,63 @@ fetch("../getAllRequestFromA" )
                                     '<div class="col-md-6 p-0">'+
                                         '<h5 class="mb-0" style="padding: 15px">'+ item["category"] +'</h5>'+
                                     '</div>'+
-                                    '<div class="col-md-4 p-0">'
-                                        if (item["status"] =="ready to auction") {
-                                            contentHTML +=
-                                        '<h5 class="mb-0 text-success text-right" style="font-weight: 500; padding: 15px;"><em>Thành công</em></h5>'
-                                        } else if (item["status"] =="fail") {
-                                            contentHTML +=
-                                        '<h5 class="mb-0 text-danger text-right" style="font-weight: 500; padding: 15px;"><em>Thất bại</em></h5>'
-                                        } else {
-                                            contentHTML +=
-                                        '<h5 class="mb-0 text-right" style="font-weight: 500; padding: 15px;"><em>Chờ duyệt</em></h5>'
-                                        }
-                                    
-                                    contentHTML +=
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 text-success text-right" style="font-weight: 500; padding: 15px;"><em>Thành công</em></h5>'+
+                                    '</div>'+
+                                '</div>'
+                        } else
+                        if (item["status"] == "fail") {
+                            contentHTML +=
+                                '<div class="row">'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ item["price_start"] +'</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>'+
                                     '</div>'+
                                 '</div>'+
+                                '<div class="row">'+
+                                    '<div class="col-md-2 p-0">'+
+                                        '<h5 class="mb-0" style="padding: 15px">Loại:</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-6 p-0">'+
+                                        '<h5 class="mb-0" style="padding: 15px">'+ item["category"] +'</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 text-danger text-right" style="font-weight: 500; padding: 15px;"><em>Thất bại</em></h5>'+
+                                    '</div>'+
+                                '</div>'
+                        } else
+                        if (item["status"] == "handling") {
+                            contentHTML +=
+                                '<div class="row">'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ item["price_start"] +'</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="row">'+
+                                    '<div class="col-md-2 p-0">'+
+                                        '<h5 class="mb-0" style="padding: 15px">Loại:</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-6 p-0">'+
+                                        '<h5 class="mb-0" style="padding: 15px">'+ item["category"] +'</h5>'+
+                                    '</div>'+
+                                    '<div class="col-md-4 p-0">'+
+                                        '<h5 class="mb-0 text-right" style="font-weight: 500; padding: 15px;"><em>Chờ duyệt</em></h5>'+
+                                    '</div>'+
+                                '</div>'
+                        }
+                                
+                        contentHTML +=
                             '</div>'+
                         '</div>'
                         document.getElementById("requestList").innerHTML += contentHTML;
