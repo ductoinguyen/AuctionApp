@@ -44,9 +44,12 @@
     </nav>
     <div class="main container" style="min-height: 600px;">
         <div class="row">
+            <h3 class="pt-4 pb-0" id="auctioneerBalance">Số dư: </h3>
+        </div>
+        <div class="row">
             <section class="col-md-7 request-form pb-5 px-0">
-                <div class="col-md-12 pl-0 py-4 pr-4">
-                    <h3 class="pt-3"> Yêu cầu đấu giá sản phẩm </h3>
+                <div class="col-md-12 pl-0 pt-2 pr-4">
+                    <h3> Yêu cầu đấu giá sản phẩm </h3>
                     <form action="" method="POST" style="border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); min-height: 350px; padding: 15px;">
                         <div class="form-group"> <input type="text" class="form-control" id="reqName" placeholder="Tên sản phẩm" required="required"> </div>
                         <div class="form-row">
@@ -70,8 +73,8 @@
                     </form>
                 </div>
             </section>
-            <section class="col-md-5 request-list px-0 pt-4" style="height: 90%;">
-                <h3 class="pt-3"> Danh sách yêu cầu </h3>
+            <section class="col-md-5 request-list px-0 pt-2" style="height: 90%;">
+                <h3> Danh sách yêu cầu </h3>
                 <div class="main row" style="padding: 0 15px;">
                     <div id="requestList" class="col-md-12" style="background-color: #dee2e6; overflow-y: scroll; border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); height: 350px;">
                         <!--
