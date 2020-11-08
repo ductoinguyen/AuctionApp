@@ -105,6 +105,7 @@ def createRequestFromA():
     create_date = room.getTime()[0];
     price_start = int("".join(str(price_start).split(",")))
     price_max = int("".join(str(price_max).split(",")))
+    category = {"thoitrang": "Thời trang", "hoihoa": "Hội họa", "trangsuc": "Trang sức", "doluuniem": "Đồ lưu niệm", "doco": "Đồ cổ"}[category]
     db.item.insert_one({"name": name, "content": content, "image": image, "open_bid": "", "create_date": create_date, "category": category, "id_auctioneer": ObjectId(id_auctioneer), "status": "handling", "price_start": price_start, "price_max": price_max})
     return appFlask.response_class(json.dumps({"result": "success"}), mimetype='application/json')
 

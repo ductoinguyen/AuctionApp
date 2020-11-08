@@ -1,6 +1,6 @@
 function sendRequest() {
     name = document.getElementById("reqName").value;
-    content = document.getElementById("reqContent").value;
+    content = '<div><p>' + document.getElementById("reqContent").value + '</p></div>';
     image = document.getElementById("reqImage").value;
     category = document.getElementById("reqCategory").value;
     fetch("../getIdAuctioneer")
