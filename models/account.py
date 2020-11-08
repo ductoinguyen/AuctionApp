@@ -47,17 +47,20 @@ def getAllHistoryAuction():
     id_bidder = session["id"]
     result = [x for x in db.bidder_history.find({"id_bidder": (id_bidder), "status": "auction"})] 
     # print(result, id_bidder)
-    (price_start, id_bidder_max, id_item_before, open_bid, status, image) = ("", "", "", "", "", "")
+    (price_start, id_bidder_max, id_item_before, open_bid, status, image, price_max) = ("", "", "", "", "", "", "")
     data = []
     for i in range(len(result) - 1, 0, -1):
         try:
             item = result[i]
             (id_item, price, item_name) = (item["id_item"], item["price"], item["item_name"])
             if id_item_before != id_item:
-                (price_start, id_bidder_max, id_item_before, open_bid, status, image) = [(x["price_start"], str(x["id_bidder"]), str(x["_id"]), str(x["open_bid"]).split(" ")[0], x["status"], x["image"]) for x in db.item.find({"_id": ObjectId(id_item)})][0]
+                (price_start, id_bidder_max, id_item_before, open_bid, status, image, price_max) = [(x["price_start"], str(x["id_bidder"]), str(x["_id"]), str(x["open_bid"]).split(" ")[0], x["status"], x["image"], x["price_max"]) for x in db.item.find({"_id": ObjectId(id_item)})][0]
             if id_bidder == id_bidder_max:
                 if status == "paid":
-                    result_status = "Thành công"
+                    if price == price_max:
+                        result_status = "Thành công"
+                    else:
+                        result_status = "Thất bại"
                 else:
                     result_status = "Đang diễn ra"
             else:
