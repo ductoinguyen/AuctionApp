@@ -114,7 +114,7 @@ fetch("../getAllRequestFromA")
                                         '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
-                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ item["price_start"] +'</h5>'+
+                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ formatMoney(item["price_start"]) +'</h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
                                         '<h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>'+
@@ -139,7 +139,7 @@ fetch("../getAllRequestFromA")
                                         '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
-                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ item["price_start"] +'</h5>'+
+                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ formatMoney(item["price_start"]) +'</h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
                                         '<h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>'+
@@ -164,7 +164,7 @@ fetch("../getAllRequestFromA")
                                         '<h5 class="mb-0 pb-0" style="padding: 15px; padding-right: 0;"> Giá khởi điểm: </h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
-                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ item["price_start"] +'</h5>'+
+                                        '<h5 class="mb-0 pb-0 text-right" style="padding: 15px 0; padding-right: 15px;">'+ formatMoney(item["price_start"]) +'</h5>'+
                                     '</div>'+
                                     '<div class="col-md-4 p-0">'+
                                         '<h5 class="mb-0 pb-0" style="padding: 15px 0;">VNĐ</h5>'+
