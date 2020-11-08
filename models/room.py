@@ -66,8 +66,9 @@ def checkTimeRemainingDB(typeroom):
             typeroom = typeroom.strip()
             id_item = str(app.primaryItemId[app.indexRoom[typeroom]])
             try:
-                x = [x for x in db.item.find({"_id": ObjectId(id_item)}, {"id_bidder": True, "price_max": True}).limit(1)][0]
+                x = [x for x in db.item.find({"_id": ObjectId(id_item)}, {"id_bidder": True, "price_max": True, "id_auctioneer": True}).limit(1)][0]
                 db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}}) 
+                db.auctioneer.update_one({"_id": ObjectId(x["id_auctioneer"])}, {"$inc": {"accountBalance": x["price_max"]}})             
                 db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "paid"}})
             except:
                 db.item.update_one({"_id": ObjectId(id_item)}, {"$set": {"status": "fail-auction"}})
@@ -170,7 +171,8 @@ def createRoom(typeroom):
     if (strMocTime != strNow):
         # cập nhật toàn bộ
         for x in db.item.find({"status": "ready to auction", "id_bidder": { "$exists": True, "$ne": None}}):
-            db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}}) 
+            db.bidder.update_one({"_id": ObjectId(x["id_bidder"])}, {"$inc": {"accountBalance": - x["price_max"]}})
+            db.auctioneer.update_one({"_id": ObjectId(x["id_auctioneer"])}, {"$inc": {"accountBalance": x["price_max"]}})             
             db.item.update_one({"_id": ObjectId(x["_id"])}, {"$set": {"status": "paid"}})
         start = now.strftime("%d/%m/%Y %H:%M:%S")
         duration = 3600 - (int(now.strftime("%M"))*60 + int(now.strftime("%S")))
