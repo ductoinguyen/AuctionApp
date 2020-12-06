@@ -7576,7 +7576,7 @@ a.text-dark:hover, a.text-dark:focus {
         background: #dee2e6;
         transition: width .3s;
     }
-    
+
     .nav-item:hover::after {
         width: 100%;
-    }    
+    }

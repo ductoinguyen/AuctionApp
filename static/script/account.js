@@ -24,6 +24,7 @@ fetch("../getInfoBidder")
                     document.getElementById("tenTaiKhoan").value = data.name;
                     document.getElementById("address").value = data.address;
                     document.getElementById("birthDay").value = data.birthday;
+                    document.getElementById("createDate").innerHTML = data.createDate.split("-").reverse().join('-');
                     // alert(data.birthday)
                     document.getElementById("soDuTaiKhoan").innerHTML = formatMoney(data.accountBalance);
                     document.getElementById("phone").value = data.phoneNumber;

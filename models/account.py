@@ -21,7 +21,7 @@ def getInfoBidder():
     appFlask = app.app
     db = app.db
     x = [x for x in db.bidder.find({"_id": ObjectId(str(session["id"]))})][0]
-    return appFlask.response_class(json.dumps({"name": x["name"], "address": x["address"], "birthday": str(x["birthday"]).split(" ")[0], "accountBalance": x["accountBalance"], "phoneNumber": x["phoneNumber"]}), mimetype='application/json')   
+    return appFlask.response_class(json.dumps({"name": x["name"], "address": x["address"], "birthday": str(x["birthday"]).split(" ")[0], "createDate": str(x["createDate"]).split(" ")[0], "accountBalance": x["accountBalance"], "phoneNumber": x["phoneNumber"]}), mimetype='application/json')   
 
 def setInfoBidder():
     appFlask = app.app
